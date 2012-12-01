@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 namespace WorkOrders.Web.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]
+    public class HomeController : BootstrapBaseController
     {
         public ActionResult Index()
         {
