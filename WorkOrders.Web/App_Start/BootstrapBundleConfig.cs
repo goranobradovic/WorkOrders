@@ -16,12 +16,17 @@ namespace WorkOrders.Web
                 "~/Scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js"
                 ));
 
-            bundles.Add(new StyleBundle("~/content/css").Include(
-                "~/Content/bootstrap.css"
-                ));
-            bundles.Add(new StyleBundle("~/content/css-responsive").Include(
-                "~/Content/bootstrap-responsive.css"
-                ));
+            var styleBundle = new StyleBundle("~/content/css").Include(
+                "~/Content/less/bootstrap.less");
+            styleBundle.Transforms.Add(new BundleTransformer.Core.Transformers.CssTransformer());
+            bundles.Add(styleBundle);
+            
+            var responsiveBundle = new StyleBundle("~/content/css-responsive").Include(
+                "~/Content/less/responsive.less"
+                //"~/Content/less/customizations.less"
+                );
+            responsiveBundle.Transforms.Add(new BundleTransformer.Core.Transformers.CssTransformer());
+            bundles.Add(responsiveBundle);
         }
     }
 }
