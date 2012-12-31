@@ -23,9 +23,6 @@ namespace WorkOrders.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
-
-
         }
     }
 }

@@ -1,0 +1,119 @@
+@import "bootstrap.less";
+@import "responsive.less";
+
+body {
+    font-variant: small-caps;
+}
+
+
+.item-list {
+    background-color: @dropdownBackground;
+    .makeColumn(3);
+    text-align: left;
+
+    ul {
+        list-style: none;
+        text-align: left;
+
+        li {
+            background-color: @dropdownBackground;
+            color: @dropdownLinkColor;
+            cursor: pointer;
+            padding: 2px;
+            margin: 3px;
+            position: relative;
+        }
+
+            li.active {
+                background-color: @dropdownLinkBackgroundActive;
+                color: @dropdownLinkColorActive;
+                font-weight: bold;
+                margin-right: 0;
+            }
+
+            li:hover {
+                background-color: @dropdownLinkBackgroundHover;
+                color: @dropdownLinkColorHover;
+            }
+    }
+}
+
+.current-item {
+    border: 3px solid @dropdownLinkBackgroundActive;
+    .makeColumn(8);
+    .container;
+    text-align: left;
+    padding: 5px;
+    /*fieldset:before {
+        content: "";
+        width: 100%;
+        border-bottom: 1px solid @dropdownLinkBackgroundActive;
+        margin: 5px 10px;
+    }*/
+    .input-prepend .add-on {
+        width: 30%;
+    }
+
+    header, fieldset, section {
+        .container-fluid;
+        .makeRow;
+        padding-right: 0px;
+
+        section, fieldset {
+            .makeColumn(5);
+        }
+    }
+
+    .work-limits {
+        section {
+            .makeColumn(2.5);
+        }
+    }
+
+    .work-footer {
+        margin: 10px 0;
+
+        section {
+            .makeColumn(3);
+        }
+
+        .input-prepend .add-on {
+            width: auto;
+        }
+    }
+
+    .logo {
+        height: 30px;
+        margin: 3px;
+    }
+}
+
+@media print {
+    .not-printable {
+        display: none;
+    }
+
+    .current-item {
+        border: none;
+		padding:0;
+    }
+
+    input::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+
+    input::-webkit-scrollbar {
+        display: none;
+    }
+
+    input[type="date"]::-webkit-input-placeholder {
+        visibility: hidden !important;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+}

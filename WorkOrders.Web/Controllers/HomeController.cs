@@ -6,27 +6,12 @@ using System.Web.Mvc;
 
 namespace WorkOrders.Web.Controllers
 {
-    [Authorize]
-    public class HomeController : BootstrapBaseController
+    //[Authorize()]
+    public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string returnUrl)
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
     }

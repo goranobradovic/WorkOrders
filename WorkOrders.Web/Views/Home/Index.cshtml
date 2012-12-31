@@ -1,45 +1,278 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model WorkOrders.Web.Models.LoginModel
+@{
+    ViewBag.Title = "Radni nalozi";
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>
+
+<header class="not-printable">
+    <h1>@ViewBag.Title</h1>
+</header>
+
+<div id="main-content">
+    @if (@User.Identity.IsAuthenticated)
+    {
+        <section id="workOrders">
+            <article class="item-list not-printable">
+                <h4>Otvoreni nalozi</h4>
+                <ul>
+                    <li>Nalog 1</li>
+                    <li>Nalog 2</li>
+                    <li class="active">Odabrani Nalog</li>
+                    <li>Nalog 3</li>
+                    <li>Nalog 4</li>
+                    <li>Nalog 5</li>
+                </ul>
+            </article>
+            <article class="current-item">
+                <header>
+                    <section>
+                        <label class="logo">LOGO</label>
+                        <label class="input-prepend"><span class="add-on">Korisnik</span><input type="text" class="ui-autocomplete" value="@User.Identity.Name" /></label>
+                    </section>
+                    <section>
+                        <label class="input-prepend"><span class="add-on">Radni nalog br.</span><input type="text" value="1123"></input></label>
+                        <label class="input-prepend"><span class="add-on">Datum prijema</span><input type="datetime-local" class="" value="@DateTime.Now" /></label>
+                    </section>
+                </header>
+                <fieldset class="customer-info">
+                    <legend>Podaci o naručiocu/vozilu</legend>
+                    <section>
+                        <label class="input-prepend"><span class="add-on">Naručilac</span><input type="text" class="" value="some text" /></label>
+                        <label class="input-prepend"><span class="add-on">Adresa</span><input type="text" class="" value="some text" /></label>
+                        <label class="input-prepend"><span class="add-on">Telefon</span><input type="text" class="" value="some text" /></label>
+                        <label class="input-prepend"><span class="add-on">Kontakt osoba</span><input type="text" class="" value="some text" /></label>
+                    </section>
+                    <section>
+                        <label class="input-prepend"><span class="add-on">Vozilo</span><input type="text" class="" value="some text" /></label>
+                        <label class="input-prepend"><span class="add-on">Reg. broj</span><input type="text" class="" value="some text" /></label>
+                        <label class="input-prepend"><span class="add-on">Stanje km</span><input type="text" class="" value="some text" /></label>
+                        <label class="input-prepend"><span class="add-on">Broj šasije</span><input type="text" class="" value="some text" /></label>
+                        <label class="input-prepend"><span class="add-on">Broj motora</span><input type="text" class="" value="some text" /></label>
+                    </section>
+                </fieldset>
+                <fieldset class="order-info">
+                    <legend>Tražene usluge od strane naručioca</legend>
+                    <section>
+                        <hr />
+                        <hr />
+                    </section>
+                    <section>
+                        <hr />
+                        <hr />
+                    </section>
+                </fieldset>
+                <fieldset class="work-needed">
+                    <legend>Potrebni radovi</legend>
+                    <section>
+                        <hr />
+                        <hr />
+                    </section>
+                    <section>
+                        <hr />
+                        <hr />
+                    </section>
+                </fieldset>
+                <fieldset class="work-limits">
+                    <legend>Vrijednost i rokovi radova</legend>
+                    <section>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            Zahtjev za procjenu
+                        </label>
+                        <label class="text">
+                            Početna procjena radova
+                            <input type="text" class="input-medium" value="some text" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            Max vrijednost
+                        </label>
+                        <label class="text">
+                            Odobrena MAX vrijednost
+                            <input type="text" class="input-medium" value="some text" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            Odobrenje
+                        </label>
+                        <span>Naručilac ne želi procjenu</span>
+                    </section>
+                    <section>
+                        <label>Rok za završetak</label>
+                        <input type="datetime-local" />
+                    </section>
+                </fieldset>
+                <fieldset>
+                    <legend>Izvještaj o izvršenju naloga</legend>
+                    <fieldset class="work-info">
+                        <legend>Izvršeni radovi</legend>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>R.B.</th>
+                                    <th>Naziv</th>
+                                    <th>Kol.</th>
+                                    <th>J.M.</th>
+                                    <th>Vrijednost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4"><strong class="pull-right">Ukupno</strong></td>
+                                    <td colspan="1"><strong class="pull-right">999.95</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </fieldset>
+                    <fieldset class="parts-info">
+                        <legend>Ugrađeni dijelovi</legend>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>R.B.</th>
+                                    <th>Naziv</th>
+                                    <th>Kol.</th>
+                                    <th>J.M.</th>
+                                    <th>Vrijednost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="info">
+                                    <td colspan="4"><strong class="pull-right">Ukupno</strong></td>
+                                    <td colspan="1"><strong class="pull-right">999.95</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </fieldset>
+                </fieldset>
+                <section>
+                    <fieldset>
+                        <legend>Savjet servisa</legend>
+                        <hr />
+                        <hr />
+                    </fieldset>
+                    <fieldset>
+                        <table class="table">
+                            <tr>
+                                <th>Ukupno dijelovi</th>
+                                <td><span class="pull-right">999.95</span></td>
+                            </tr>
+                            <tr>
+                                <th>Ukupno rad</th>
+                                <td><span class="pull-right">999.95</span></td>
+                            </tr>
+                            <tr>
+                                <th>Ukupno</th>
+                                <td><strong><strong class="pull-right">1999.90</strong></strong></td>
+                            </tr>
+                        </table>
+                        <label class="input-prepend"><span class="add-on">Datum završetka</span><input class="input-medium"  type="datetime-local" class="" value="@DateTime.Now" /></label>
+                    </fieldset>
+                </section>
+                <section class="work-footer">
+                    <section>
+                        <label class="input-prepend"><span class="add-on">Za servis</span><input type="text" class="input-medium" /></label>
+                        <label>
+                            Potpis<hr />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input-prepend"><span class="add-on">Datum</span><input type="datetime-local" class="input-medium" /></label>
+                        <label style="text-align: center">M.P.</label>
+                    </section>
+                    <section>
+                        <label class="input-prepend"><span class="add-on">Vozilo preuzeo</span><input type="text" class="input-medium" /></label>
+                        <label>
+                            Potpis<hr />
+                        </label>
+                    </section>
+                </section>
+                <footer class="not-printable">
+                    <button class="btn btn-inverse">Odštampaj nalog</button>
+                    <button class="btn btn-danger">Zatvori nalog</button>
+                </footer>
+            </article>
+        </section>
+    }
+    else if (@User.Identity.IsAuthenticated && false)
+    {
+        <p class="error" data-bind="text: error"></p>
+        <button data-bind="click: addTodoList">Add Todo list</button>
+
+        <section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
+            <article class="todoList">
+                <header>
+                    <form data-bind="validate: true">
+                        <input class="required" data-bind="value: Title, selected: IsEditingListTitle, blurOnEnter: true" />
+                    </form>
+                </header>
+
+                <a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>
+
+                <ul data-bind="foreach: Todos">
+                    <li>
+                        <input type="checkbox" data-bind="checked: IsDone" />
+                        <input type="text" data-bind="value: Title, disable: IsDone, blurOnEnter: true" />
+                        <a href="#" data-bind="click: $parent.deleteTodo">X</a>
+                        <p class="error" data-bind="visible: ErrorMessage, text: ErrorMessage"></p>
+                    </li>
+                </ul>
+
+                <form data-bind="submit: addTodo">
+                    <input class="addTodo" type="text" data-bind="value: NewTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, event: { blur: addTodo }" />
+                </form>
+
+                <p class="error" data-bind="visible: ErrorMessage, text: ErrorMessage"></p>
+            </article>
+        </section>
+    }
+    else
+    {
+        <div class="todoList not-printable" id="loginPanel">
+            <section id="localLoginPanel">
+                <h2>Log in</h2>
+                @Html.Partial("_Login")
+            </section>
+            <section id="socialLoginPanel">
+                <h2>Log in using another service</h2>
+                @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+            <p>First time here? <a id="showRegister">Sign up</a></p>
         </div>
-    </section>
+        <div class="todoList" id="registerPanel">
+            <h2>Sign up</h2>
+            @Html.Partial("_Register")
+            <p>Already signed up? <a id="showLogin">Log in</a></p>
+        </div>
+    }
+</div>
+
+@if (@User.Identity.IsAuthenticated)
+{
+    @section scripts {
+        @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/todo")
+    }
 }
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
-    </li>
-
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
-
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
-</ol>

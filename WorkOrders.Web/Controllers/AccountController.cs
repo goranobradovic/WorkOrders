@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
@@ -18,31 +17,27 @@ namespace WorkOrders.Web.Controllers
     public class AccountController : Controller
     {
         //
-        // GET: /Account/Login
+        // POST: /Account/JsonLogin
 
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
-
-        //
-        // POST: /Account/Login
-
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public JsonResult JsonLogin(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid)
             {
-                return RedirectToLocal(returnUrl);
+                if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+                {
+                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    return Json(new { success = true, redirect = returnUrl });
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                }
             }
 
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
         }
 
         //
@@ -58,21 +53,11 @@ namespace WorkOrders.Web.Controllers
         }
 
         //
-        // GET: /Account/Register
-
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/Register
-
+        // POST: /Account/JsonRegister
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult JsonRegister(RegisterModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +66,11 @@ namespace WorkOrders.Web.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+
+                    InitiateDatabaseForNewUser(model.UserName);
+
+                    FormsAuthentication.SetAuthCookie(model.UserName, createPersistentCookie: false);
+                    return Json(new { success = true, redirect = returnUrl });
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -89,8 +78,27 @@ namespace WorkOrders.Web.Controllers
                 }
             }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
+        }
+
+        /// <summary>
+        /// Initiate a new todo list for new user
+        /// </summary>
+        /// <param name="userName"></param>
+        private static void InitiateDatabaseForNewUser(string userName)
+        {
+            TodoContext db = new TodoContext();
+            TodoList todoList = new TodoList();
+            todoList.UserId = userName;
+            todoList.Title = "My Todo List #1";
+            todoList.Todos = new List<TodoItem>();
+            db.TodoLists.Add(todoList);
+            db.SaveChanges();
+
+            todoList.Todos.Add(new TodoItem() { Title = "Todo item #1", TodoListId = todoList.TodoListId, IsDone = false });
+            todoList.Todos.Add(new TodoItem() { Title = "Todo item #2", TodoListId = todoList.TodoListId, IsDone = false });
+            db.SaveChanges();
         }
 
         //
@@ -273,6 +281,8 @@ namespace WorkOrders.Web.Controllers
                         db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
                         db.SaveChanges();
 
+                        InitiateDatabaseForNewUser(model.UserName);
+
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
                         OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
 
@@ -363,6 +373,11 @@ namespace WorkOrders.Web.Controllers
             {
                 OAuthWebSecurity.RequestAuthentication(Provider, ReturnUrl);
             }
+        }
+
+        private IEnumerable<string> GetErrorsFromModelState()
+        {
+            return ModelState.SelectMany(x => x.Value.Errors.Select(error => error.ErrorMessage));
         }
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
