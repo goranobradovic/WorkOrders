@@ -95,7 +95,7 @@ body {
 
     .current-item {
         border: none;
-		padding:0;
+        padding: 0;
     }
 
     input::-webkit-calendar-picker-indicator {
@@ -115,5 +115,21 @@ body {
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    .input-prepend .add-on, .input-apend .add-on,
+    .input-prepend input, .input-apend input {
+		.border-radius(0);
+		border-width:0;
+    }
+
+    .input-prepend .add-on {
+		text-align:right;
+    }
+    
+	
+    .input-prepend input, .input-apend input {
+		border-left: 1px solid gray;
+        border-bottom: 1px solid gray;
     }
 }

@@ -7852,4 +7852,21 @@ body {
     /* <-- Apparently some margin are still there even though it's hidden */
   
   }
+  .input-prepend .add-on,
+  .input-apend .add-on,
+  .input-prepend input,
+  .input-apend input {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+  }
+  .input-prepend .add-on {
+    text-align: right;
+  }
+  .input-prepend input,
+  .input-apend input {
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
 }
