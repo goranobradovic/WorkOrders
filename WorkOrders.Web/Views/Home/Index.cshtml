@@ -10,6 +10,7 @@
 <div id="main-content">
     @if (@User.Identity.IsAuthenticated)
     {
+        
         <section id="workOrders">
             <article class="item-list not-printable">
                 <h4>Otvoreni nalozi</h4>
@@ -286,7 +287,8 @@
 {
     @section scripts {
         @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/breeze")
         @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/todo")
+        @Scripts.Render("~/bundles/workorder")
     }
 }

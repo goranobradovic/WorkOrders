@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>System.Web.Optimization.Less</id>
+    <version>1.0.0.1</version>
+    <title />
+    <authors>xus8</authors>
+    <owners>xus8</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>dotless adapter for system.web.optimization</description>
+    <tags>less, dotless, system.web.optimization, bundle</tags>
+    <dependencies>
+      <dependency id="dotless" version="1.3.0.5" />
+      <dependency id="Microsoft.AspNet.Web.Optimization" version="1.0.0" />
+    </dependencies>
+    <references>
+      <reference file="System.Web.Optimization.Less.dll" />
+    </references>
+  </metadata>
+</package>

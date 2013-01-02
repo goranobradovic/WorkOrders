@@ -1,5 +1,5 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
+using System.Web.Optimization.Less;
 
 namespace WorkOrders.Web
 {
@@ -21,6 +21,11 @@ namespace WorkOrders.Web
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                         "~/Scripts/knockout-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/breeze").Include(
+                        "~/Scripts/q*",
+                        "~/Scripts/breeze*"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
                 "~/Scripts/app/ajaxlogin.js"));
 
@@ -31,9 +36,9 @@ namespace WorkOrders.Web
                 "~/Scripts/app/todo.viewmodel.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/workorder").Include(
-                "~/Scripts/app/workorder.bindings.js",
-                "~/Scripts/app/workorder.datacontext.js",
-                "~/Scripts/app/workorder.model.js",
+                "~/Scripts/app/logger.js",
+                //"~/Scripts/app/workorder.datacontext.js",
+                //"~/Scripts/app/workorder.model.js",
                 "~/Scripts/app/workorder.viewmodel.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -41,10 +46,12 @@ namespace WorkOrders.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            var styles = new StyleBundle("~/Content/css").Include(
                 "~/Content/Site.css",
                 "~/Content/TodoList.css",
-                "~/Content/less/workorders.less"));
+                "~/Content/less/workorders.less");
+            styles.Transforms.Add(new LessTransformer());
+            bundles.Add(styles);
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
