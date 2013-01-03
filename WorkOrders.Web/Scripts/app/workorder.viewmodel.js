@@ -3,7 +3,8 @@
 (function (root) {
     var breeze = root.breeze,
         ko = root.ko,
-        logger = root.app.logger;
+        logger = root.app.logger,
+        models = root.app.models;
 
     // define Breeze namespace
     var entityModel = breeze.entityModel;
@@ -13,16 +14,37 @@
 
     // manager is the service gateway and cache holder
     var manager = new entityModel.EntityManager(serviceName);
+    
+    manager.metadataStore.fetchMetadata(serviceName)
+        .then(function() {
+
+            var metadata = {
+                WorkOrder: manager.metadataStore.getEntityType("WorkOrder"),
+                Vehicle: manager.metadataStore.getEntityType("Vehicle", true)
+            };
+            vm.metadata = metadata;
+        });
+    manager.metadataStore.registerEntityTypeCtor("WorkOrder", models.WorkOrder);
 
     // define the viewmodel
     var vm = {
-        workOrders : ko.observableArray(),
-        todos: ko.observableArray(),
+        workOrders: ko.observableArray(),
+        selectedWorkOrder: ko.observable(),
         includeDone: ko.observable(false),
+        addWorkOrder: createNewWorkOrder,
+        selectWorkOrder: selectWorkOrder,
         save: saveChanges,
-        show: ko.observable(false)
+        show: ko.observable(false),
+        manager: manager
     };
-    root.vm = vm;
+    vm.workOrders.subscribe(function() {
+        if (!vm.selectedWorkOrder() && vm.workOrders().length > 0) {
+            vm.selectedWorkOrder(vm.workOrders()[0]);
+        }
+    });
+    
+    root.app.vm = vm;
+
     // start fetching Work Orders
     getWorkOrders();
 
@@ -62,6 +84,17 @@
             vm.show(true); // show the view
         }
     };
+
+    function createNewWorkOrder() {
+        var wo = vm.metadata.WorkOrder.createEntity();
+        wo.Number(0);
+        manager.addEntity(wo);
+        vm.workOrders.push(wo);
+    }
+
+    function selectWorkOrder(workOrder) {
+        vm.selectedWorkOrder(workOrder);
+    }
 
     function saveChanges() {
         return manager.saveChanges()

@@ -38,7 +38,7 @@ namespace WorkOrders.Web
             bundles.Add(new ScriptBundle("~/bundles/workorder").Include(
                 "~/Scripts/app/logger.js",
                 //"~/Scripts/app/workorder.datacontext.js",
-                //"~/Scripts/app/workorder.model.js",
+                "~/Scripts/app/workorder.model.js",
                 "~/Scripts/app/workorder.viewmodel.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

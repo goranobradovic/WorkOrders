@@ -11,26 +11,22 @@
     @if (@User.Identity.IsAuthenticated)
     {
         
-        <section id="workOrders">
+        <section id="workOrders" data-bind="visible: show">
             <article class="item-list not-printable">
                 <h4>Otvoreni nalozi</h4>
-                <ul>
-                    <li>Nalog 1</li>
-                    <li>Nalog 2</li>
-                    <li class="active">Odabrani Nalog</li>
-                    <li>Nalog 3</li>
-                    <li>Nalog 4</li>
-                    <li>Nalog 5</li>
+                <ul data-bind="foreach: workOrders">
+                    <li data-bind="text: Number, click: $parent.selectWorkOrder, css: { active: $data == $parent.selectedWorkOrder() }"></li>
                 </ul>
+                <button class="button btn-primary" data-bind="click:addWorkOrder"><i class="icon-edit icon-white"></i> Novi</button>
             </article>
-            <article class="current-item">
+            <article class="current-item" data-bind="with:selectedWorkOrder">
                 <header>
                     <section>
                         <label class="logo">LOGO</label>
                         <label class="input-prepend"><span class="add-on">Korisnik</span><input type="text" class="ui-autocomplete" value="@User.Identity.Name" /></label>
                     </section>
                     <section>
-                        <label class="input-prepend"><span class="add-on">Radni nalog br.</span><input type="text" value="1123"></input></label>
+                        <label class="input-prepend"><span class="add-on">Radni nalog br.</span><input type="text" data-bind="value: Number"></input></label>
                         <label class="input-prepend"><span class="add-on">Datum prijema</span><input type="datetime-local" class="" value="@DateTime.Now" /></label>
                     </section>
                 </header>
@@ -282,7 +278,7 @@
         </div>
     }
 </div>
-
+<div class="pull-left" id="logmessages"></div>
 @if (@User.Identity.IsAuthenticated)
 {
     @section scripts {
