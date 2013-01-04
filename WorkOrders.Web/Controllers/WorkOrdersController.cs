@@ -12,16 +12,14 @@ using WorkOrders.Web.Models;
 
 namespace WorkOrders.Web.Controllers
 {
-    [JsonFormatter, ODataActionFilter]
+    [BreezeController]
     public class WorkOrdersController : ApiController
     {
         readonly EFContextProvider<WorkOrdersContext> _contextProvider =
             new EFContextProvider<WorkOrdersContext>();
-        //private WorkOrdersContext db = new WorkOrdersContext();
 
         public WorkOrdersController()
         {
-            this._contextProvider.Context.Configuration.ProxyCreationEnabled = false;
         }
 
         [HttpGet]
@@ -37,9 +35,9 @@ namespace WorkOrders.Web.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WorkOrder> WorkOrders()
+        public IQueryable<WorkOrder> WorkOrders()
         {
-            return _contextProvider.Context.WorkOrders.AsEnumerable();
+            return _contextProvider.Context.WorkOrders;
         }
 
         

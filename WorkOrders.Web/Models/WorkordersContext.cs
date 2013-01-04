@@ -4,9 +4,8 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
-using WorkOrders.Domain.Models;
 
-namespace WorkOrders.Web.Models
+namespace WorkOrders.Domain.Models
 {
     public class WorkOrdersContext : DbContext
     {

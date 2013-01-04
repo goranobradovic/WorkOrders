@@ -39,24 +39,24 @@
         data = data || {};
 
         // Persisted properties
-        self.Id = data.Id;
-        self.Advice = data.Advice || '';
-        self.Approved = ko.observable(data.Approved || false);
-        self.ApprovedMaxValue = data.ApprovedMaxValue || false;
+        //self.Id = data.Id || ' ';
+        //self.Advice = data.Advice || '';
+        //self.Approved = ko.observable(data.Approved || false);
+        //self.ApprovedMaxValue = data.ApprovedMaxValue || false;
         //self.Client = new Client(data.Client);
-        self.ClientId = ko.observable(data.ClientId);
-        self.CompletionDate = data.CompletionDate;
-        self.CreatedBy = data.CreatedBy;
-        self.DateModified = data.DateModified;
-        self.DateReceived = data.DateReceived;
-        self.Deadline = data.Deadline;
-        self.DeliveredTo = data.DeliveredTo;
-        self.Employee = data.Employee;
-        self.EstimatedValue = data.EstimatedValue;
-        self.Number = data.Number;
-        self.RequestForEstimate = data.RequestForEstimate;
+        //self.ClientId = ko.observable(data.ClientId);
+        //self.CompletionDate = data.CompletionDate;
+        //self.CreatedBy = data.CreatedBy;
+        //self.DateModified = data.DateModified;
+        //self.DateReceived = data.DateReceived;
+        //self.Deadline = data.Deadline;
+        //self.DeliveredTo = data.DeliveredTo;
+        //self.Employee = data.Employee;
+        //self.EstimatedValue = data.EstimatedValue;
+        //self.Number = data.Number;
+        //self.RequestForEstimate = data.RequestForEstimate;
         //self.Vehicle = new Vehicle(data.Vehicle);
-        self.VehicleId = data.VehicleId;
+        //self.VehicleId = data.VehicleId;
 
 
         // Non-persisted properties
