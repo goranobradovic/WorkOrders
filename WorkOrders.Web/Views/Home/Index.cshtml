@@ -10,192 +10,192 @@
 <div id="main-content">
     @if (@User.Identity.IsAuthenticated)
     {
-        
         <section id="workOrders" data-bind="visible: show">
             <article class="item-list not-printable">
                 <h4>Otvoreni nalozi</h4>
                 <ul data-bind="foreach: workOrders">
                     <li data-bind="text: Number, click: $parent.selectWorkOrder, css: { active: $data == $parent.selectedWorkOrder() }"></li>
                 </ul>
-                <button class="button btn-primary" data-bind="click:addWorkOrder"><i class="icon-edit icon-white"></i> Novi</button>
+                <button class="button btn-primary" data-bind="click:addWorkOrder"><i class="icon-edit icon-white"></i>Novi nalog</button>
             </article>
-            <article class="current-item" data-bind="with:selectedWorkOrder">
+            <article class="current-item" data-bind="with:selectedWorkOrder, visible: selectedWorkOrder">
+                <script id="tmpl-simpleWorkItems" type="text/html">
+                    <ul data-bind="foreach:$data" class="unstyledList">
+                        <li>
+                            <div class="input-append">
+                                <input type="text" data-bind="value:Name" class="input-block-level" />
+                                <button class="btn not-printable" data-bind="click:$root.removeWorkItem"><i class="icon-trash"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button data-bind="click:$root.addWorkItem" class="btn pull-right not-printable input-block-level"><i class="icon-plus"></i>Dodaj</button>
+                </script>
+                <script id="tmpl-tabledWorkItems" type="text/html">
+                    <table class="table table-bordered" data-bind="visible:$data.length">
+                        <thead>
+                            <tr>
+                                <th>r.b.</th>
+                                <th>Naziv</th>
+                                <th>Količina</th>
+                                <th>Jed. Mjere</th>
+                                <th>Vrijednost</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:$data">
+                            <tr class="not-printable">
+                                <td data-bind="text:$index() + 1"></td>
+                                <td>
+                                    <input type="text" class="input-small" data-bind="value:Name" />
+                                </td>
+                                <td>
+                                    <input type="number" class="input-micro" data-bind="value:Amount" />
+                                </td>
+                                <td>
+                                    <input type="text" class="input-mini" data-bind="value:Unit"
+                                        data-provide="typeahead" data-source='["komad", "sat"]' />
+                                </td>
+                                <td>
+                                    <div class="input-append">
+                                        <input type="text" data-bind="value:FormattedValue" class="input-micro" /><span class="add-on">KM</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="printable-only">
+                                <td data-bind="text:$index() + 1"></td>
+                                <td>
+                                    <span data-bind="text:Name" />
+                                </td>
+                                <td>
+                                    <span data-bind="text:Amount" />
+                                </td>
+                                <td>
+                                    <span data-bind="text:Unit" />
+                                </td>
+                                <td>
+                                    <span class="pull-right" data-bind="text:FormattedValue" />
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4"><strong class="pull-right">Ukupno</strong></td>
+                                <td colspan="1"><strong class="pull-right" data-bind="text:$root.itemPriceSum($data)"></strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <button data-bind="click:$root.addWorkItem" class="btn pull-right not-printable input-block-level"><i class="icon-plus"></i>Dodaj</button>
+                </script>
                 <header>
                     <section>
-                        <label class="logo">LOGO</label>
-                        <label class="input-prepend"><span class="add-on">Korisnik</span><input type="text" class="ui-autocomplete" value="@User.Identity.Name" /></label>
+                        <div class="logo">
+                            <img src="@Url.Content("~/Content/images/logo.png")" alt="logo"/>
+                        </div>
                     </section>
-                    <section>
+                    <section class="pull-right">
                         <label class="input-prepend"><span class="add-on">Radni nalog br.</span><input type="text" data-bind="value: Number"></input></label>
-                        <label class="input-prepend"><span class="add-on">Datum prijema</span><input type="datetime-local" class="" value="@DateTime.Now" /></label>
+                        <label class="input-prepend"><span class="add-on">Korisnik</span><input type="text" class="ui-autocomplete" data-bind="value:Employee" /></label>
+                        <label class="input-prepend"><span class="add-on">Datum prijema</span><input type="datetime-local" class="" data-bind="value:DateReceived" /></label>
                     </section>
                 </header>
                 <fieldset class="customer-info">
                     <legend>Podaci o naručiocu/vozilu</legend>
-                    <section>
-                        <label class="input-prepend"><span class="add-on">Naručilac</span><input type="text" class="" value="some text" /></label>
-                        <label class="input-prepend"><span class="add-on">Adresa</span><input type="text" class="" value="some text" /></label>
-                        <label class="input-prepend"><span class="add-on">Telefon</span><input type="text" class="" value="some text" /></label>
-                        <label class="input-prepend"><span class="add-on">Kontakt osoba</span><input type="text" class="" value="some text" /></label>
+                    <section data-bind="with:Client">
+                        <label class="input-prepend"><span class="add-on">Naručilac</span><input type="text" class="" data-bind="value:Name" /></label>
+                        <label class="input-prepend"><span class="add-on">Adresa</span><input type="text" class="" data-bind="value:Address" /></label>
+                        <label class="input-prepend"><span class="add-on">Telefon</span><input type="text" class="" data-bind="value:Phone" /></label>
+                        <label class="input-prepend"><span class="add-on">Kontakt osoba</span><input type="text" class="" data-bind="value:Contact" /></label>
                     </section>
-                    <section>
-                        <label class="input-prepend"><span class="add-on">Vozilo</span><input type="text" class="" value="some text" /></label>
-                        <label class="input-prepend"><span class="add-on">Reg. broj</span><input type="text" class="" value="some text" /></label>
-                        <label class="input-prepend"><span class="add-on">Stanje km</span><input type="text" class="" value="some text" /></label>
-                        <label class="input-prepend"><span class="add-on">Broj šasije</span><input type="text" class="" value="some text" /></label>
-                        <label class="input-prepend"><span class="add-on">Broj motora</span><input type="text" class="" value="some text" /></label>
+                    <section data-bind="with:Vehicle">
+                        <label class="input-prepend">
+                            <span class="add-on">Marka | Model</span>
+                            <input type="text" id="Vehicle_Manufacturer" class="input-half inline" data-bind="value:Manufacturer"
+                                placeholder="marka" data-provide="typeahead" data-source='["Audi", "BMW", "Citroen", "Fiat", "Hyndai", "Jeep", "Lancia", "Mercedes", "Nissan", "Opel", "Zastava"]' />
+                            <input type="text" class="input-half" data-bind="value:Model" placeholder="model" />
+                        </label>
+                        <label class="input-prepend">
+                            <span class="add-on">Reg. br. | Stanje km</span>
+                            <input type="text" class="input-half inline" data-bind="value:RegistrationNumber" placeholder="npr. M17-E-231" />
+                            <input type="number" class="input-half" data-bind="value:Odometer" placeholder="npr. 178233" />
+                        </label>
+                        <label class="input-prepend"><span class="add-on">Broj šasije</span><input type="text" class="" data-bind="value:VIN" /></label>
+                        <label class="input-prepend"><span class="add-on">Broj motora</span><input type="text" class="" data-bind="value:EngineNumber" /></label>
                     </section>
                 </fieldset>
                 <fieldset class="order-info">
-                    <legend>Tražene usluge od strane naručioca</legend>
-                    <section>
-                        <hr />
-                        <hr />
-                    </section>
-                    <section>
-                        <hr />
-                        <hr />
-                    </section>
-                </fieldset>
-                <fieldset class="work-needed">
-                    <legend>Potrebni radovi</legend>
-                    <section>
-                        <hr />
-                        <hr />
-                    </section>
-                    <section>
-                        <hr />
-                        <hr />
-                    </section>
+                    <legend>Podaci o nalogu</legend>
+                    <fieldset>
+                        <legend>Tražene usluge</legend>
+                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data:WorkOrdered }"></section>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Potrebni radovi</legend>
+                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data:WorkNeeded }"></section>
+                    </fieldset>
                 </fieldset>
                 <fieldset class="work-limits">
                     <legend>Vrijednost i rokovi radova</legend>
                     <section>
                         <label class="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" data-bind="checked:RequestForEstimate">
                             Zahtjev za procjenu
                         </label>
-                        <label class="text">
+                        <label class="text" data-bind="visible:RequestForEstimate">
                             Početna procjena radova
-                            <input type="text" class="input-medium" value="some text" />
+                            <input type="text" class="input-medium" data-bind="value:EstimatedValue" />
                         </label>
                     </section>
                     <section>
                         <label class="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" data-bind="checked:ApprovedMax">
                             Max vrijednost
                         </label>
-                        <label class="text">
+                        <label class="text" data-bind="visible:ApprovedMax">
                             Odobrena MAX vrijednost
-                            <input type="text" class="input-medium" value="some text" />
+                            <input type="text" class="input-medium" data-bind="value:ApprovedMaxValue" />
                         </label>
                     </section>
                     <section>
                         <label class="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" data-bind="checked:Approved">
                             Odobrenje
                         </label>
-                        <span>Naručilac ne želi procjenu</span>
+                        <span data-bind="visible:Approved">Naručilac ne želi procjenu</span>
                     </section>
                     <section>
                         <label>Rok za završetak</label>
-                        <input type="datetime-local" />
+                        <input type="datetime-local" data-bind="value:Deadline" />
                     </section>
                 </fieldset>
                 <fieldset>
                     <legend>Izvještaj o izvršenju naloga</legend>
                     <fieldset class="work-info">
                         <legend>Izvršeni radovi</legend>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>R.B.</th>
-                                    <th>Naziv</th>
-                                    <th>Kol.</th>
-                                    <th>J.M.</th>
-                                    <th>Vrijednost</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="4"><strong class="pull-right">Ukupno</strong></td>
-                                    <td colspan="1"><strong class="pull-right">999.95</strong></td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <section data-bind="template:{ name: 'tmpl-tabledWorkItems', data:WorkPerformed }"></section>
                     </fieldset>
                     <fieldset class="parts-info">
                         <legend>Ugrađeni dijelovi</legend>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>R.B.</th>
-                                    <th>Naziv</th>
-                                    <th>Kol.</th>
-                                    <th>J.M.</th>
-                                    <th>Vrijednost</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr class="info">
-                                    <td colspan="4"><strong class="pull-right">Ukupno</strong></td>
-                                    <td colspan="1"><strong class="pull-right">999.95</strong></td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <section data-bind="template:{ name: 'tmpl-tabledWorkItems', data:PartsInstalled }"></section>
                     </fieldset>
                 </fieldset>
                 <section>
                     <fieldset>
                         <legend>Savjet servisa</legend>
-                        <hr />
-                        <hr />
+                        <textarea data-bind="value:Advice" class="input-block-level" rows="3"></textarea>
                     </fieldset>
                     <fieldset>
+                        <legend>&nbsp;</legend>
                         <table class="table">
                             <tr>
                                 <th>Ukupno dijelovi</th>
-                                <td><span class="pull-right">999.95</span></td>
+                                <td><span class="pull-right" data-bind="text:PartsInstalledSum"></span></td>
                             </tr>
                             <tr>
                                 <th>Ukupno rad</th>
-                                <td><span class="pull-right">999.95</span></td>
+                                <td><span class="pull-right" data-bind="text:WorkPerformedSum"></span></td>
                             </tr>
                             <tr>
                                 <th>Ukupno</th>
-                                <td><strong><strong class="pull-right">1999.90</strong></strong></td>
+                                <td><span class="pull-right" data-bind="text:TotalSum"></span></td>
                             </tr>
                         </table>
                         <label class="input-prepend"><span class="add-on">Datum završetka</span><input class="input-medium"  type="datetime-local" class="" value="@DateTime.Now" /></label>
@@ -204,18 +204,20 @@
                 <section class="work-footer">
                     <section>
                         <label class="input-prepend"><span class="add-on">Za servis</span><input type="text" class="input-medium" /></label>
-                        <label>
-                            Potpis<hr />
+                        <label class="input-prepend printable-only">
+                            <span class="add-on">Potpis</span><input type="text" class="input-medium" />
                         </label>
                     </section>
                     <section>
                         <label class="input-prepend"><span class="add-on">Datum</span><input type="datetime-local" class="input-medium" /></label>
-                        <label style="text-align: center">M.P.</label>
+                        <br />
+                        <br />
+                        <label style="text-align: center" class="printable-only">M.P.</label>
                     </section>
                     <section>
                         <label class="input-prepend"><span class="add-on">Vozilo preuzeo</span><input type="text" class="input-medium" /></label>
-                        <label>
-                            Potpis<hr />
+                        <label class="input-prepend printable-only">
+                            <span class="add-on">Potpis</span><input type="text" class="input-medium" />
                         </label>
                     </section>
                 </section>
@@ -278,13 +280,17 @@
         </div>
     }
 </div>
-<div class="pull-left" id="logmessages"></div>
+<div class="pull-left not-printable" id="logmessages"></div>
 @if (@User.Identity.IsAuthenticated)
 {
     @section scripts {
-        @Scripts.Render("~/bundles/knockout")
+        @*@Scripts.Render("~/bundles/knockout")
         @Scripts.Render("~/bundles/breeze")
-        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryval")*@
         @Scripts.Render("~/bundles/workorder")
+        <script>
+            // workaround around bootstrap issue https://github.com/twitter/bootstrap/issues/5955
+            //$(document).ready(function () { $("#Vehicle_Manufacturer").typeahead({ source: app.autocomplete.Manufacturers }); });
+        </script>
     }
 }

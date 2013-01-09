@@ -1,10 +1,11 @@
 /// <reference path="..\breeze.debug.js" />
 
 (function (root) {
+    var app = root.app;
     var breeze = root.breeze,
         ko = root.ko,
-        logger = root.app.logger,
-        models = root.app.models;
+        logger = app.logger,
+        models = app.models;
 
     // define Breeze namespace
     var entityModel = breeze.entityModel;
@@ -14,17 +15,20 @@
 
     // manager is the service gateway and cache holder
     var manager = new entityModel.EntityManager(serviceName);
-    
+
     manager.metadataStore.fetchMetadata(serviceName)
-        .then(function() {
+        .then(function () {
 
             var metadata = {
                 WorkOrder: manager.metadataStore.getEntityType("WorkOrder"),
-                Vehicle: manager.metadataStore.getEntityType("Vehicle", true)
+                WorkItem: manager.metadataStore.getEntityType("WorkItem"),
+                Vehicle: manager.metadataStore.getEntityType("Vehicle"),
+                Client: manager.metadataStore.getEntityType("Client")
             };
             vm.metadata = metadata;
         });
-    manager.metadataStore.registerEntityTypeCtor("WorkOrder", models.WorkOrder);
+    manager.metadataStore.registerEntityTypeCtor("WorkOrder", function () { }, models.WorkOrder);
+    manager.metadataStore.registerEntityTypeCtor("WorkItem", function () { }, models.WorkItem);
 
     // define the viewmodel
     var vm = {
@@ -35,14 +39,18 @@
         selectWorkOrder: selectWorkOrder,
         save: saveChanges,
         show: ko.observable(false),
-        manager: manager
+        manager: manager,
+        addWorkItem: addWorkItem,
+        removeWorkItem: removeWorkItem,
+        itemPriceSum: itemPriceSum,
+        formatCurrency: app.helpers.formatCurrency
     };
-    vm.workOrders.subscribe(function() {
+    vm.workOrders.subscribe(function () {
         if (!vm.selectedWorkOrder() && vm.workOrders().length > 0) {
             vm.selectedWorkOrder(vm.workOrders()[0]);
         }
     });
-    
+
     root.app.vm = vm;
 
     // start fetching Work Orders
@@ -87,13 +95,36 @@
 
     function createNewWorkOrder() {
         var wo = vm.metadata.WorkOrder.createEntity();
+        wo.Client(vm.metadata.Client.createEntity());
+        wo.Vehicle(vm.metadata.Vehicle.createEntity());
         wo.Number(0);
         manager.addEntity(wo);
         vm.workOrders.push(wo);
+        logger.success("work order created");
     }
 
     function selectWorkOrder(workOrder) {
         vm.selectedWorkOrder(workOrder);
+        logger.success("work order {number} selected".assign({ number: workOrder.Number() }));
+    }
+
+
+    function addWorkItem(target, event) {
+        var workItem = vm.metadata.WorkItem.createEntity();
+        vm.manager.addEntity(workItem);
+        target.push(workItem);
+    };
+
+    function removeWorkItem(target) {
+        target.entityAspect.setDeleted();
+    };
+
+    function itemPriceSum(items) {
+        var sum = 0.0;
+        items.each(function (item, index) {
+            sum += item.Value();
+        });
+        return vm.formatCurrency(sum);
     }
 
     function saveChanges() {

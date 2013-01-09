@@ -2,19 +2,31 @@
     app.models = app.models || {};
     app.models.WorkItem = WorkItem;
     app.models.WorkOrder = WorkOrder;
+    var formatCurrency = app.helpers.formatCurrency;
 
     function WorkItem(data) {
-        var self = this;
-        data = data || {};
+        var self = data;
 
         // Persisted properties
-        self.WorkItemId = data.WorkItemId;
-        self.Title = ko.observable(data.Title);
-        self.IsDone = ko.observable(data.IsDone);
-        self.WorkOrderId = data.WorkOrderId;
+        //self.WorkItemId = data.WorkItemId;
+        //self.Title = ko.observable(data.Title);
+        //self.IsDone = ko.observable(data.IsDone);
+        //self.WorkOrderId = data.WorkOrderId;
 
         // Non-persisted properties
         self.ErrorMessage = ko.observable();
+
+        if (!self.Amount()) {
+            self.Amount(1);
+        }
+
+        self.Amount.subscribe(function (value) {
+            if (value <= 0) {
+                self.entityAspect.setDeleted();
+            }
+        });
+
+        self.FormattedValue = self.Value.extend({ numeric: 2 });
 
         //self.save = function () { return datacontext.saveChangedWorkItem(self); };
 
@@ -35,8 +47,8 @@
     }
 
     function WorkOrder(data) {
-        var self = this;
-        data = data || {};
+        var self = data;
+        //data = data || {};
 
         // Persisted properties
         //self.Id = data.Id || ' ';
@@ -58,10 +70,44 @@
         //self.Vehicle = new Vehicle(data.Vehicle);
         //self.VehicleId = data.VehicleId;
 
+        //self.WorkOrdered = ko.observableArray([]);
 
         // Non-persisted properties
 
         self.ErrorMessage = ko.observable();
+        self.ApprovedMax = ko.observable(false);
+        //self.Approved = ko.observable();
+        //self.RequestForEstimate = ko.observable();
+
+        self.WorkPerformedSum = ko.computed(function () {
+            return app.vm.itemPriceSum(self.WorkPerformed());
+        });
+        self.PartsInstalledSum = ko.computed(function () {
+            return app.vm.itemPriceSum(self.PartsInstalled());
+        });
+        self.TotalSum = ko.computed(function () {
+            return formatCurrency(parseFloat(self.WorkPerformedSum()) + parseFloat(self.PartsInstalledSum()));
+        });
+
+        ko.computed(function () {
+            if (self.Approved()) {
+                self.ApprovedMax(false);
+                self.RequestForEstimate(false);
+            }
+        });
+
+        ko.computed(function () {
+            if (self.ApprovedMax() || self.RequestForEstimate()) {
+                self.Approved(false);
+            }
+        });
+
+        ko.computed(function () {
+            if (self.ApprovedMax() && !self.ApprovedMaxValue()) {
+                self.ApprovedMaxValue(100.0);
+            }
+        });
+
 
         self.save = function () { return datacontext.saveChangedWorkOrder(self); };
         self.deleteWorkOrder = function () {
@@ -74,7 +120,7 @@
         //self.Title.subscribe(self.save);
 
     };
-    
+
     // convert raw WorkItem data objects into array of WorkItems
     function importWorkItems(WorkItems) {
         return $.map(WorkItems || [],
@@ -82,7 +128,7 @@
                     //return datacontext.createWorkItem(WorkItemData);
                 });
     }
-    
+
     WorkOrder.prototype.addWorkOrder = function () {
         var self = this;
         //if (self.NewWorkOrderTitle()) { // need a title to save

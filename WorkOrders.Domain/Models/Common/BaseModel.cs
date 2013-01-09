@@ -10,5 +10,13 @@ namespace WorkOrders.Domain.Models.Common
         /// <value>The id.</value>
         [Key]
         public long Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the original id.
+        /// </summary>
+        /// <value>
+        /// The original id.
+        /// </value>
+        public long? JournalingId { get; set; }
     }
 }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Web;
+using WorkOrders.Domain.Models;
 
-namespace WorkOrders.Domain.Models
+namespace WorkOrders.Web.Models
 {
     public class WorkOrdersContext : DbContext
     {

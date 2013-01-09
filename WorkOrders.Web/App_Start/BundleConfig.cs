@@ -8,6 +8,17 @@ namespace WorkOrders.Web
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/libs").Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-ui-{version}.js",
+                        "~/Scripts/jquery.unobtrusive*",
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/knockout-{version}.js",
+                        "~/Scripts/bootstrap*",
+                        "~/Scripts/q*",
+                        "~/Scripts/breeze*",
+                        "~/Scripts/sugar*"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -38,6 +49,7 @@ namespace WorkOrders.Web
             bundles.Add(new ScriptBundle("~/bundles/workorder").Include(
                 "~/Scripts/app/logger.js",
                 //"~/Scripts/app/workorder.datacontext.js",
+                "~/Scripts/app/workorder.common.js",
                 "~/Scripts/app/workorder.model.js",
                 "~/Scripts/app/workorder.viewmodel.js"));
 

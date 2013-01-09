@@ -7611,6 +7611,31 @@ a.badge:hover {
 body {
   font-variant: small-caps;
 }
+legend {
+  padding-top: 10px;
+  line-height: 25px;
+}
+.input-append .inline,
+.input-prepend .inline {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+input.input-micro {
+  width: 40px;
+}
+.table {
+  /*border:1px solid @dropdownBorder;*/
+
+}
+.table td {
+  padding: 5px;
+}
+.unstyledList {
+  list-style: none;
+  text-align: left;
+  margin: 0;
+}
 .item-list {
   background-color: #ffffff;
   float: left;
@@ -7621,6 +7646,7 @@ body {
 .item-list ul {
   list-style: none;
   text-align: left;
+  margin: 0;
 }
 .item-list ul li {
   background-color: #ffffff;
@@ -7639,6 +7665,9 @@ body {
 .item-list ul li:hover {
   background-color: #0088cc;
   color: #ffffff;
+}
+.input-half {
+  width: 96px;
 }
 .current-item {
   border: 3px solid #0088cc;
@@ -7695,140 +7724,205 @@ body {
   clear: both;
 }
 .current-item .input-prepend .add-on {
-  width: 30%;
+  width: 120px;
 }
-.current-item header,
 .current-item fieldset,
-.current-item section {
+.current-item section,
+.current-item header {
   padding-right: 20px;
   padding-left: 20px;
   margin-left: -20px;
   *zoom: 1;
-  padding-right: 0px;
+  margin-left: 0;
 }
-.current-item header:before,
 .current-item fieldset:before,
 .current-item section:before,
-.current-item header:after,
+.current-item header:before,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.current-item header:after,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   clear: both;
 }
-.current-item header:before,
 .current-item fieldset:before,
 .current-item section:before,
-.current-item header:after,
+.current-item header:before,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.current-item header:after,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   clear: both;
 }
-.current-item header:before,
 .current-item fieldset:before,
 .current-item section:before,
-.current-item header:after,
+.current-item header:before,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.current-item header:after,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   clear: both;
 }
-.current-item header:before,
 .current-item fieldset:before,
 .current-item section:before,
-.current-item header:after,
+.current-item header:before,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.current-item header:after,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   clear: both;
 }
-.current-item header:before,
 .current-item fieldset:before,
 .current-item section:before,
-.current-item header:after,
+.current-item header:before,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.current-item header:after,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   clear: both;
 }
-.current-item header:before,
 .current-item fieldset:before,
 .current-item section:before,
-.current-item header:after,
+.current-item header:before,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.current-item header:after,
 .current-item fieldset:after,
-.current-item section:after {
+.current-item section:after,
+.current-item header:after {
   clear: both;
 }
-.current-item header section,
 .current-item fieldset section,
 .current-item section section,
-.current-item header fieldset,
+.current-item header section,
 .current-item fieldset fieldset,
-.current-item section fieldset {
+.current-item section fieldset,
+.current-item header fieldset {
   float: left;
   margin-left: 20px;
+  width: 420px;
+  margin-left: 5px;
+  padding-left: 0;
+}
+.current-item fieldset section label.input-prepend input,
+.current-item section section label.input-prepend input,
+.current-item header section label.input-prepend input,
+.current-item fieldset fieldset label.input-prepend input,
+.current-item section fieldset label.input-prepend input,
+.current-item header fieldset label.input-prepend input,
+.current-item fieldset section label.input-append input,
+.current-item section section label.input-append input,
+.current-item header section label.input-append input,
+.current-item fieldset fieldset label.input-append input,
+.current-item section fieldset label.input-append input,
+.current-item header fieldset label.input-append input {
+  width: 270px;
+}
+.current-item fieldset section label.input-prepend input.input-half,
+.current-item section section label.input-prepend input.input-half,
+.current-item header section label.input-prepend input.input-half,
+.current-item fieldset fieldset label.input-prepend input.input-half,
+.current-item section fieldset label.input-prepend input.input-half,
+.current-item header fieldset label.input-prepend input.input-half,
+.current-item fieldset section label.input-append input.input-half,
+.current-item section section label.input-append input.input-half,
+.current-item header section label.input-append input.input-half,
+.current-item fieldset fieldset label.input-append input.input-half,
+.current-item section fieldset label.input-append input.input-half,
+.current-item header fieldset label.input-append input.input-half {
+  width: 129px;
+}
+.current-item .order-info fieldset > section {
   width: 380px;
+  margin-left: 0;
 }
 .current-item .work-limits section {
-  float: left;
-  margin-left: 20px;
-  width: 180px;
+  width: 200px;
 }
 .current-item .work-footer {
   margin: 10px 0;
+  padding: 0 4px;
 }
 .current-item .work-footer section {
   float: left;
   margin-left: 20px;
-  width: 220px;
+  width: 260px;
 }
-.current-item .work-footer .input-prepend .add-on {
-  width: auto;
+.current-item .work-footer .input-prepend .add-on,
+.current-item .work-footer .input-append .add-on {
+  width: 90px;
+}
+.current-item .work-footer .input-prepend input,
+.current-item .work-footer .input-append input {
+  width: 150px;
 }
 .current-item .logo {
   height: 30px;
   margin: 3px;
 }
+div.logo,
+div.logo img {
+  height: 100px;
+}
+input::-webkit-input-placeholder {
+  color: #cccccc;
+}
+:-moz-placeholder {
+  color: #cccccc;
+}
+::-moz-placeholder {
+  color: #cccccc;
+}
+:-ms-input-placeholder {
+  color: #cccccc;
+}
+@media screen {
+  .printable-only {
+    display: none !important;
+  }
+}
 @media print {
+  body {
+    font-family: serif, Calibri;
+  }
   .not-printable {
     display: none;
+  }
+  .printable-only {
+    display: normal;
   }
   .current-item {
     border: none;
@@ -7840,7 +7934,28 @@ body {
   input::-webkit-scrollbar {
     display: none;
   }
+  input:-ms-input-placeholder,
+  input::-webkit-input-placeholder,
+  input:-moz-placeholder,
+  input[type="date"]:-moz-placeholder,
+  input[type="date"]:-ms-input-placeholder,
   input[type="date"]::-webkit-input-placeholder {
+    visibility: hidden !important;
+  }
+  input::-webkit-input-placeholder {
+    display: none;
+    visibility: hidden !important;
+  }
+  :-moz-placeholder {
+    display: none;
+    visibility: hidden !important;
+  }
+  ::-moz-placeholder {
+    display: none;
+    visibility: hidden !important;
+  }
+  :-ms-input-placeholder {
+    display: none;
     visibility: hidden !important;
   }
   input::-webkit-outer-spin-button,
@@ -7852,21 +7967,65 @@ body {
     /* <-- Apparently some margin are still there even though it's hidden */
   
   }
+  input.printable-only {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-bottom: 1px solid silver;
+    width: 75mm;
+  }
+  .input-prepend,
+  .input-append {
+    width: 100mm;
+  }
   .input-prepend .add-on,
-  .input-apend .add-on,
+  .input-append .add-on,
   .input-prepend input,
-  .input-apend input {
+  .input-append input {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
     border-width: 0;
   }
-  .input-prepend .add-on {
+  .input-prepend .add-on,
+  .input-append .add-on {
     text-align: right;
+    width: 25mm;
+    margin-right: 1mm;
   }
   .input-prepend input,
-  .input-apend input {
-    border-left: 1px solid gray;
-    border-bottom: 1px solid gray;
+  .input-append input {
+    border-bottom: 1px solid silver;
+    width: 75mm;
+  }
+  .input-prepend .input-half,
+  .input-append .input-half {
+    width: 37.5mm;
+  }
+  .input-prepend .input-block-level,
+  .input-append .input-block-level {
+    width: 112.5mm;
+  }
+  .input-prepend input {
+    border-left: 1px solid silver;
+  }
+  .work-footer {
+    padding: 0;
+  }
+  .work-footer section {
+    float: left;
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left;
+  }
+  .work-footer .input-prepend {
+    float: left;
+  }
+  .work-footer .input-prepend span.add-on {
+    width: 15mm;
+  }
+  .work-footer .input-prepend input {
+    width: auto;
   }
 }

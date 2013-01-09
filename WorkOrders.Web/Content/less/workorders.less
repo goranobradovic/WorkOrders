@@ -1,21 +1,56 @@
 @import "bootstrap.less";
 @import "responsive.less";
 
-body {
+body
+{
     font-variant: small-caps;
 }
 
+legend
+{
+    padding-top: 10px;
+    line-height: 25px;
+}
 
-.item-list {
+.input-append .inline, .input-prepend .inline
+{
+    .border-radius(0);
+}
+
+input.input-micro
+{
+    width: 40px;
+}
+
+.table
+{
+    /*border:1px solid @dropdownBorder;*/
+    td
+    {
+        padding: 5px;
+    }
+}
+
+
+.unstyledList
+{
+    list-style: none;
+    text-align: left;
+    margin: 0;
+}
+
+.item-list
+{
     background-color: @dropdownBackground;
     .makeColumn(3);
     text-align: left;
 
-    ul {
-        list-style: none;
-        text-align: left;
+    ul
+    {
+        .unstyledList;
 
-        li {
+        li
+        {
             background-color: @dropdownBackground;
             color: @dropdownLinkColor;
             cursor: pointer;
@@ -24,21 +59,29 @@ body {
             position: relative;
         }
 
-            li.active {
+            li.active
+            {
                 background-color: @dropdownLinkBackgroundActive;
                 color: @dropdownLinkColorActive;
                 font-weight: bold;
                 margin-right: 0;
             }
 
-            li:hover {
+            li:hover
+            {
                 background-color: @dropdownLinkBackgroundHover;
                 color: @dropdownLinkColorHover;
             }
     }
 }
 
-.current-item {
+.input-half
+{
+    width: 96px;
+}
+
+.current-item
+{
     border: 3px solid @dropdownLinkBackgroundActive;
     .makeColumn(8);
     .container;
@@ -50,86 +93,268 @@ body {
         border-bottom: 1px solid @dropdownLinkBackgroundActive;
         margin: 5px 10px;
     }*/
-    .input-prepend .add-on {
-        width: 30%;
+    .input-prepend .add-on
+    {
+        width: @gridColumnWidth * 2;
     }
 
-    header, fieldset, section {
+    fieldset, section, header
+    {
         .container-fluid;
         .makeRow;
-        padding-right: 0px;
+        margin-left: 0;
 
-        section, fieldset {
-            .makeColumn(5);
+        section, fieldset
+        {
+            .makeColumn(5.5);
+            margin-left: 5px;
+            padding-left: 0;
+
+            label.input-prepend, label.input-append
+            {
+                input
+                {
+                    width: @gridColumnWidth * 4.5;
+                }
+
+                    input.input-half
+                    {
+                        width: @gridColumnWidth * 2.15;
+                    }
+            }
         }
     }
 
-    .work-limits {
-        section {
-            .makeColumn(2.5);
+    .order-info
+    {
+        fieldset > section
+        {
+            width: @gridColumnWidth * 6 + 20px;
+            margin-left: 0;
         }
     }
 
-    .work-footer {
+    .work-limits
+    {
+        section
+        {
+            width: @gridColumnWidth * 3 + 20px;
+        }
+    }
+
+    .work-footer
+    {
         margin: 10px 0;
+        padding: 0 4px;
 
-        section {
-            .makeColumn(3);
+        section
+        {
+            .makeColumn(3.5);
         }
 
-        .input-prepend .add-on {
-            width: auto;
+        .input-prepend, .input-append
+        {
+            .add-on
+            {
+                width: @gridColumnWidth * 1.5;
+            }
+
+            input
+            {
+                width: @gridColumnWidth * 2.5;
+            }
         }
     }
 
-    .logo {
+    .logo
+    {
         height: 30px;
         margin: 3px;
     }
 }
 
-@media print {
-    .not-printable {
+div.logo, div.logo img
+{
+    height: 100px;
+}
+
+input::-webkit-input-placeholder
+{
+    color: @inputBorder;
+}
+
+:-moz-placeholder
+{
+    color: @inputBorder;
+}
+
+::-moz-placeholder
+{
+    color: @inputBorder;
+}
+
+:-ms-input-placeholder
+{
+    color: @inputBorder;
+}
+
+@media screen
+{
+    .printable-only
+    {
+        display: none !important;
+    }
+}
+
+@media print
+{
+    body
+    {
+        font-family: serif, Calibri;
+    }
+
+    .not-printable
+    {
         display: none;
     }
 
-    .current-item {
+    .printable-only
+    {
+        display: normal;
+    }
+
+    .current-item
+    {
         border: none;
         padding: 0;
     }
 
-    input::-webkit-calendar-picker-indicator {
+    input::-webkit-calendar-picker-indicator
+    {
         display: none;
     }
 
-    input::-webkit-scrollbar {
+    input::-webkit-scrollbar
+    {
         display: none;
     }
 
-    input[type="date"]::-webkit-input-placeholder {
+    input:-ms-input-placeholder,
+    input::-webkit-input-placeholder,
+    input:-moz-placeholder,
+    input[type="date"]:-moz-placeholder,
+    input[type="date"]:-ms-input-placeholder,
+    input[type="date"]::-webkit-input-placeholder
+    {
+        visibility: hidden !important;
+    }
+
+    input::-webkit-input-placeholder
+    {
+        display: none;
+        visibility: hidden !important;
+    }
+
+    :-moz-placeholder
+    {
+        display: none;
+        visibility: hidden !important;
+    }
+
+    ::-moz-placeholder
+    {
+        display: none;
+        visibility: hidden !important;
+    }
+
+    :-ms-input-placeholder
+    {
+        display: none;
         visibility: hidden !important;
     }
 
     input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
+    input::-webkit-inner-spin-button
+    {
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
 
-    .input-prepend .add-on, .input-apend .add-on,
-    .input-prepend input, .input-apend input {
-		.border-radius(0);
-		border-width:0;
+    @gridColumnWidth: 25mm;
+
+    input.printable-only
+    {
+        .border-radius(0);
+        border-width: 0;
+        border-bottom: 1px solid silver;
+        width: @gridColumnWidth * 3;
     }
 
-    .input-prepend .add-on {
-		text-align:right;
+    .input-prepend, .input-append
+    {
+        width: @gridColumnWidth * 4;
+
+        .add-on, input
+        {
+            .border-radius(0);
+            border-width: 0;
+        }
+
+        .add-on
+        {
+            text-align: right;
+            width: @gridColumnWidth;
+            margin-right: 1mm;
+        }
+
+        input
+        {
+            border-bottom: 1px solid silver;
+            width: @gridColumnWidth * 3;
+        }
+
+        .input-half
+        {
+            width: @gridColumnWidth * 1.5;
+        }
+
+        .input-block-level
+        {
+            width: @gridColumnWidth * 4.5;
+        }
     }
-    
-	
-    .input-prepend input, .input-apend input {
-		border-left: 1px solid gray;
-        border-bottom: 1px solid gray;
+
+        .input-prepend input
+        {
+            border-left: 1px solid silver;
+        }
+
+    .work-footer
+    {
+        padding: 0;
+
+        section
+        {
+            float: left;
+            margin-left: 0;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        .input-prepend
+        {
+            float: left;
+
+            span.add-on
+            {
+                width: 15mm;
+            }
+
+            input
+            {
+                width: auto;
+            }
+        }
     }
 }
