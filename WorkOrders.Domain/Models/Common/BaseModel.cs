@@ -8,7 +8,7 @@ namespace WorkOrders.Domain.Models.Common
         /// Gets or sets the id.
         /// </summary>
         /// <value>The id.</value>
-        [Key]
+        //[Key]
         public long Id { get; set; }
 
         /// <summary>

@@ -10,6 +10,14 @@ namespace WorkOrders.Domain.Models
 {
   public class WorkItem : BaseModel
   {
+    public enum WorkItemType
+    {
+      Ordered = 1,
+      Needed = 2,
+      Performed = 3,
+      PartInstalled = 4
+    }
+
     public string Name { get; set; }
 
     public decimal Amount { get; set; }
@@ -18,24 +26,10 @@ namespace WorkOrders.Domain.Models
 
     public decimal Value { get; set; }
 
-    public long? OrderedForWorkOrderId { get; set; }
+    public WorkItemType Type { get; set; }
 
-    [ForeignKey("OrderedForWorkOrderId")]
-    public virtual WorkOrder OrderedForWorkOrder { get; set; }
+    public virtual long WorkOrderId { get; set; }
 
-    public long? NeededForWorkOrderId { get; set; }
-
-    [ForeignKey("NeededForWorkOrderId")]
-    public virtual WorkOrder NeededForWorkOrder { get; set; }
-
-    public long? PerformedForWorkOrderId { get; set; }
-
-    [ForeignKey("PerformedForWorkOrderId")]
-    public virtual WorkOrder PerformedForWorkOrder { get; set; }
-
-    public long? PartInstalledForWorkOrderId { get; set; }
-
-    [ForeignKey("PartInstalledForWorkOrderId")]
-    public virtual WorkOrder PartInstalledForWorkOrder { get; set; }
+    public virtual WorkOrder WorkOrder { get; set; }
   }
 }

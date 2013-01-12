@@ -11,7 +11,7 @@
     root.ko.extenders.numeric = function (target, precision) {
         //create a writeable computed observable to intercept writes to our observable
         var result = ko.computed({
-            read: function () { return formatCurrency(target()) },  //always return the original observables value
+            read: function () { return formatCurrency(target()); },  //always return the original observables value
             write: function (newValue) {
                 var current = target(),
                     roundingMultiplier = Math.pow(10, precision),
@@ -35,6 +35,20 @@
 
         //return the new computed observable
         return result;
+    };
+
+    root.ko.bindingHandlers.datepicker = {
+        init: function (element, valueAccessor) {
+            $(element).datepicker()
+                .on('changeDate', function(ev) {
+                    var value = valueAccessor();
+                    value(ev.date.valueOf());
+                });
+        },
+        update: function (element, valueAccessor) {
+            var value = valueAccessor();
+            $(element).datepicker('setValue', value());
+        }
     };
 
 }(window));

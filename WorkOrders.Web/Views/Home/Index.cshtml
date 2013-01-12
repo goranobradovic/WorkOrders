@@ -1,6 +1,7 @@
 ﻿@model WorkOrders.Web.Models.LoginModel
 @{
     ViewBag.Title = "Radni nalozi";
+    var dateFormat = "dd.mm.yyyy";
 }
 
 <header class="not-printable">
@@ -8,9 +9,9 @@
 </header>
 
 <div id="main-content">
-    @if (@User.Identity.IsAuthenticated)
+    @if (@User.Identity.IsAuthenticated /* && User.IsInRole(WorkOrders.Web.Infrastructure.Constants.RoleNames.Employee)*/)
     {
-        <section id="workOrders" data-bind="visible: show">
+        <section id="workOrders" style="display: none" data-bind="visible: show">
             <article class="item-list not-printable">
                 <h4>Otvoreni nalozi</h4>
                 <ul data-bind="foreach: workOrders">
@@ -94,7 +95,12 @@
                     <section class="pull-right">
                         <label class="input-prepend"><span class="add-on">Radni nalog br.</span><input type="text" data-bind="value: Number"></input></label>
                         <label class="input-prepend"><span class="add-on">Korisnik</span><input type="text" class="ui-autocomplete" data-bind="value:Employee" /></label>
-                        <label class="input-prepend"><span class="add-on">Datum prijema</span><input type="datetime-local" class="" data-bind="value:DateReceived" /></label>
+                        @*<label class="input-prepend"><span class="add-on">Datum prijema</span><input type="datetime-local" class="" data-bind="value:DateReceived" /></label>*@
+                        <label class="input-prepend" data-date-format="@dateFormat" data-bind="attr:{ 'data-date': DateReceived }">
+                            <span class="add-on">Datum prijema</span>
+                            <input class="datepicker" data-date-format="@dateFormat" type="text" data-bind="datepicker:DateReceived">
+                             @*<span class="add-on"><i class="icon-th"></i></span>*@
+                        </label>
                     </section>
                 </header>
                 <fieldset class="customer-info">
@@ -125,7 +131,7 @@
                     <legend>Podaci o nalogu</legend>
                     <fieldset>
                         <legend>Tražene usluge</legend>
-                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data:WorkOrdered }"></section>
+                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data: { items: WorkOrdered, type: 3} }"></section>
                     </fieldset>
                     <fieldset>
                         <legend>Potrebni radovi</legend>
@@ -224,6 +230,7 @@
                 <footer class="not-printable">
                     <button class="btn btn-inverse" onclick="window.print()">Odštampaj nalog</button>
                     <button class="btn btn-danger">Zatvori nalog</button>
+                    <button class="btn btn-primary" data-bind="click:$root.save">Sačuvaj</button>
                 </footer>
             </article>
         </section>
@@ -290,7 +297,10 @@
         @Scripts.Render("~/bundles/workorder")
         <script>
             // workaround around bootstrap issue https://github.com/twitter/bootstrap/issues/5955
-            //$(document).ready(function () { $("#Vehicle_Manufacturer").typeahead({ source: app.autocomplete.Manufacturers }); });
+            $(document).ready(function () {
+                //$("#Vehicle_Manufacturer").typeahead({ source: app.autocomplete.Manufacturers });
+                $('.datepicker').datepicker();
+            });
         </script>
     }
 }

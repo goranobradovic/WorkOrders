@@ -43,6 +43,7 @@
         addWorkItem: addWorkItem,
         removeWorkItem: removeWorkItem,
         itemPriceSum: itemPriceSum,
+        saveSelected: saveSelected,
         formatCurrency: app.helpers.formatCurrency
     };
     vm.workOrders.subscribe(function () {
@@ -70,7 +71,8 @@
 
         logger.info("querying WorkOrders");
 
-        var query = entityModel.EntityQuery.from("WorkOrders");
+        var query = entityModel.EntityQuery.from("WorkOrders")
+            .expand("Vehicle", "Customer", "WorkOrdered", "WorkNeeded");
 
         if (!vm.includeDone()) {
             query = query.where("CompletionDate", "==", null);
@@ -97,9 +99,9 @@
         var wo = vm.metadata.WorkOrder.createEntity();
         wo.Client(vm.metadata.Client.createEntity());
         wo.Vehicle(vm.metadata.Vehicle.createEntity());
-        wo.Number(0);
         manager.addEntity(wo);
         vm.workOrders.push(wo);
+        vm.save();
         logger.success("work order created");
     }
 
@@ -112,7 +114,8 @@
     function addWorkItem(target, event) {
         var workItem = vm.metadata.WorkItem.createEntity();
         vm.manager.addEntity(workItem);
-        target.push(workItem);
+        workItem[target.navigationProperty.inverse.name](target.parentEntity);
+        //target.push(workItem);
     };
 
     function removeWorkItem(target) {
@@ -131,6 +134,12 @@
         return manager.saveChanges()
             .then(function () { logger.success("changes saved"); })
             .fail(saveFailed);
+    }
+
+    function saveSelected() {
+        return manager.saveChanges([vm.selectedWorkOrder()])
+            .then(function () { logger.success("changes saved"); })
+            .fail(saveFailed);;
     }
 
     function queryFailed(error) {

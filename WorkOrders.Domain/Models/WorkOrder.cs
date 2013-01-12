@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using WorkOrders.Domain.Models.Common;
 
 namespace WorkOrders.Domain.Models
@@ -16,7 +17,7 @@ namespace WorkOrders.Domain.Models
       this.DateModified = DateTime.Now;
       this.Vehicle = new Vehicle();
       this.Client = new Client();
-      this.WorkOrdered = new Collection<WorkItem>() { };
+      this.WorkItems = new Collection<WorkItem>() { };
     }
 
     public WorkOrder(long? vehicleId)
@@ -51,9 +52,9 @@ namespace WorkOrders.Domain.Models
     /// <value>
     /// The client.
     /// </value>
+    //[ForeignKey("ClientId")]
     public virtual Client Client { get; set; }
 
-    [ForeignKey("Client")]
     public long? ClientId { get; set; }
 
     #endregion client
@@ -130,10 +131,18 @@ namespace WorkOrders.Domain.Models
     /// Gets or sets the car.
     /// </summary>
     /// <value>The car.</value>
+    //[ForeignKey("VehicleId")]
     public virtual Vehicle Vehicle { get; set; }
 
-    [ForeignKey("Vehicle")]
     public long? VehicleId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the work items.
+    /// </summary>
+    /// <value>
+    /// The work items.
+    /// </value>
+    public virtual ICollection<WorkItem> WorkItems { get; set; }
 
     /// <summary>
     /// Gets or sets the work ordered.
@@ -141,8 +150,14 @@ namespace WorkOrders.Domain.Models
     /// <value>
     /// The work ordered.
     /// </value>
-    [InverseProperty("OrderedForWorkOrder")]
-    public virtual ICollection<WorkItem> WorkOrdered { get; set; }
+    //[InverseProperty("OrderedForWorkOrder")]
+    public List<WorkItem> WorkOrdered
+    {
+      get
+      {
+        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.Ordered).ToList();
+      }
+    }
 
     /// <summary>
     /// Gets or sets the work needed.
@@ -150,8 +165,14 @@ namespace WorkOrders.Domain.Models
     /// <value>
     /// The work needed.
     /// </value>
-    [InverseProperty("NeededForWorkOrder")]
-    public virtual ICollection<WorkItem> WorkNeeded { get; set; }
+    //[InverseProperty("NeededForWorkOrder")]
+    public List<WorkItem> WorkNeeded
+    {
+      get
+      {
+        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.Needed).ToList();
+      }
+    }
 
     /// <summary>
     /// Gets or sets the work performed.
@@ -159,8 +180,13 @@ namespace WorkOrders.Domain.Models
     /// <value>
     /// The work performed.
     /// </value>
-    [InverseProperty("PerformedForWorkOrder")]
-    public virtual ICollection<WorkItem> WorkPerformed { get; set; }
+    public List<WorkItem> WorkPerformed
+    {
+      get
+      {
+        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.Performed).ToList();
+      }
+    }
 
     /// <summary>
     /// Gets or sets the parts installed.
@@ -168,7 +194,12 @@ namespace WorkOrders.Domain.Models
     /// <value>
     /// The parts installed.
     /// </value>
-    [InverseProperty("PartInstalledForWorkOrder")]
-    public virtual ICollection<WorkItem> PartsInstalled { get; set; }
+    public List<WorkItem> PartsInstalled
+    {
+      get
+      {
+        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.PartInstalled).ToList();
+      }
+    }
   }
 }

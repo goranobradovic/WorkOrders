@@ -71,6 +71,7 @@
         //self.VehicleId = data.VehicleId;
 
         //self.WorkOrdered = ko.observableArray([]);
+        self.DateReceived(new Date());
 
         // Non-persisted properties
 
@@ -79,6 +80,19 @@
         //self.Approved = ko.observable();
         //self.RequestForEstimate = ko.observable();
 
+        self.WorkOrdered = ko.computed(function () {
+            return self.WorkItems().filter(function (item) { return item.Type() == 1; });
+        });
+        self.WorkOrdered.type = "WorkOrdered";
+        self.WorkNeeded = ko.computed(function () {
+            return self.WorkItems().filter(function (item) { return item.Type() == 2; });
+        });
+        self.WorkPerformed = ko.computed(function () {
+            return self.WorkItems().filter(function (item) { return item.Type() == 3; });
+        });
+        self.PartsInstalled = ko.computed(function () {
+            return self.WorkItems().filter(function (item) { return item.Type() == 4; });
+        });
         self.WorkPerformedSum = ko.computed(function () {
             return app.vm.itemPriceSum(self.WorkPerformed());
         });

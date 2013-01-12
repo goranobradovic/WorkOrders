@@ -15,6 +15,7 @@ namespace WorkOrders.Web
                         "~/Scripts/jquery.validate*",
                         "~/Scripts/knockout-{version}.js",
                         "~/Scripts/bootstrap*",
+                        "~/Scripts/bootstrap-datepicker*",
                         "~/Scripts/q*",
                         "~/Scripts/breeze*",
                         "~/Scripts/sugar*"));
@@ -61,7 +62,7 @@ namespace WorkOrders.Web
             var styles = new StyleBundle("~/Content/css").Include(
                 "~/Content/Site.css",
                 "~/Content/TodoList.css",
-                "~/Content/less/workorders.less");
+                "~/Content/workorders.less");
             styles.Transforms.Add(new LessTransformer());
             bundles.Add(styles);
 
