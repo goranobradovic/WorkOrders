@@ -17,7 +17,7 @@ namespace WorkOrders.Domain.Models
       this.DateModified = DateTime.Now;
       this.Vehicle = new Vehicle();
       this.Client = new Client();
-      this.WorkItems = new Collection<WorkItem>() { };
+      this.WorkItems = new Collection<WorkItem>();
     }
 
     public WorkOrder(long? vehicleId)
@@ -144,62 +144,5 @@ namespace WorkOrders.Domain.Models
     /// </value>
     public virtual ICollection<WorkItem> WorkItems { get; set; }
 
-    /// <summary>
-    /// Gets or sets the work ordered.
-    /// </summary>
-    /// <value>
-    /// The work ordered.
-    /// </value>
-    //[InverseProperty("OrderedForWorkOrder")]
-    public List<WorkItem> WorkOrdered
-    {
-      get
-      {
-        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.Ordered).ToList();
-      }
-    }
-
-    /// <summary>
-    /// Gets or sets the work needed.
-    /// </summary>
-    /// <value>
-    /// The work needed.
-    /// </value>
-    //[InverseProperty("NeededForWorkOrder")]
-    public List<WorkItem> WorkNeeded
-    {
-      get
-      {
-        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.Needed).ToList();
-      }
-    }
-
-    /// <summary>
-    /// Gets or sets the work performed.
-    /// </summary>
-    /// <value>
-    /// The work performed.
-    /// </value>
-    public List<WorkItem> WorkPerformed
-    {
-      get
-      {
-        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.Performed).ToList();
-      }
-    }
-
-    /// <summary>
-    /// Gets or sets the parts installed.
-    /// </summary>
-    /// <value>
-    /// The parts installed.
-    /// </value>
-    public List<WorkItem> PartsInstalled
-    {
-      get
-      {
-        return this.WorkItems.Where(wi => wi.Type == WorkItem.WorkItemType.PartInstalled).ToList();
-      }
-    }
   }
 }

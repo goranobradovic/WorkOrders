@@ -16,9 +16,10 @@ namespace WorkOrders.Web
                         "~/Scripts/knockout-{version}.js",
                         "~/Scripts/bootstrap*",
                         "~/Scripts/bootstrap-datepicker*",
+                        "~/Scripts/toastr*",
                         "~/Scripts/q*",
                         "~/Scripts/breeze*",
-                        "~/Scripts/sugar*"));
+                        "~/Scripts/sugar-{version}-full.development.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -60,6 +61,7 @@ namespace WorkOrders.Web
                         "~/Scripts/modernizr-*"));
 
             var styles = new StyleBundle("~/Content/css").Include(
+                "~/Content/toastr.css",
                 "~/Content/Site.css",
                 "~/Content/TodoList.css",
                 "~/Content/workorders.less");

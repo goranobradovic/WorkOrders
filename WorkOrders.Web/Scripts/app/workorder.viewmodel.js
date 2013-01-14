@@ -72,7 +72,7 @@
         logger.info("querying WorkOrders");
 
         var query = entityModel.EntityQuery.from("WorkOrders")
-            .expand("Vehicle", "Customer", "WorkOrdered", "WorkNeeded");
+            .expand("WorkItems", "Vehicle", "Customer");
 
         if (!vm.includeDone()) {
             query = query.where("CompletionDate", "==", null);
@@ -114,7 +114,9 @@
     function addWorkItem(target, event) {
         var workItem = vm.metadata.WorkItem.createEntity();
         vm.manager.addEntity(workItem);
-        workItem[target.navigationProperty.inverse.name](target.parentEntity);
+        workItem.Type(target.type);
+        vm.selectedWorkOrder().WorkItems.push(workItem);
+        //workItem[target.navigationProperty.inverse.name](target.parentEntity);
         //target.push(workItem);
     };
 
@@ -124,7 +126,7 @@
 
     function itemPriceSum(items) {
         var sum = 0.0;
-        items.each(function (item, index) {
+        $(items).each(function (index, item) {
             sum += item.Value();
         });
         return vm.formatCurrency(sum);

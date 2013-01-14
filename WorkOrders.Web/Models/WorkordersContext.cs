@@ -8,7 +8,7 @@ using System.Linq;
 using WorkOrders.Domain.Models;
 using WorkOrders.Domain.Models.Common;
 
-namespace WorkOrders.Web.Models
+namespace WorkOrders.Domain.Models
 {
   public class WorkOrdersContext : DbContext
   {
@@ -53,9 +53,9 @@ namespace WorkOrders.Web.Models
 
     public DbSet<Client> Clients { get; set; }
 
-    public DbSet<WorkItem> WorkItems { get; set; }
-
     public DbSet<Vehicle> Vehicles { get; set; }
+
+    public DbSet<WorkItem> WorkItems { get; set; }
 
 
     protected class Migrator : DbMigrationsConfiguration<WorkOrdersContext>
@@ -82,9 +82,10 @@ namespace WorkOrders.Web.Models
 
       public static List<IEntityConfiguration> GetAllConfigurations()
       {
-        return typeof(DbConfiguration).Assembly.GetTypes().Where(t =>
-            !t.IsAbstract &&
-            typeof(IEntityConfiguration).IsAssignableFrom(t))
+        var types = typeof(DbConfiguration).Assembly.GetTypes().Where(t =>
+                                                                       !t.IsAbstract &&
+                                                                       typeof(IEntityConfiguration).IsAssignableFrom(t));
+        return types
             .Select(t => Activator.CreateInstance(t) as IEntityConfiguration)
             .ToList();
       }
@@ -95,14 +96,17 @@ namespace WorkOrders.Web.Models
       /// <typeparam name="TModel">The type of the model.</typeparam>
       public abstract class BaseConfiguration<TModel> : EntityTypeConfiguration<TModel>, IEntityConfiguration where TModel : class
       {
-        public string SchemaName = "asm";
+        public static string SchemaName = "asm";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BaseConfiguration"/> class.
         /// </summary>
-        protected BaseConfiguration()
+        public BaseConfiguration(bool defaultMapping = true)
         {
-          ToTable(typeof(TModel).Name, SchemaName);
+          if (defaultMapping)
+          {
+            ToTable(typeof(TModel).Name, SchemaName);
+          }
         }
 
         public void Register(DbModelBuilder builder)
@@ -116,7 +120,8 @@ namespace WorkOrders.Web.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BaseIdConfiguration" /> class.
         /// </summary>
-        protected BaseIdConfiguration()
+        public BaseIdConfiguration(bool defaultMapping = true)
+          : base(defaultMapping)
         {
           this.HasKey(model => model.Id);
         }
@@ -138,51 +143,62 @@ namespace WorkOrders.Web.Models
               .WithRequired(wi => wi.WorkOrder)
               .HasForeignKey(wi => wi.WorkOrderId);
 
-          this.Ignore(wo => wo.WorkNeeded);
-          this.Ignore(wo => wo.WorkOrdered);
-          this.Ignore(wo => wo.WorkPerformed);
-          this.Ignore(wo => wo.PartsInstalled);
-          this.Ignore(wi => wi.JournalingId);
-
-          //this.HasMany(wo => wo.WorkOrdered)
-          //    .WithRequired(wi => wi.OrderedForWorkOrder)
-          //    .HasForeignKey(wi => wi.OrderedForWorkOrderId)
-          //    .WillCascadeOnDelete(false);
-
-          //this.HasMany(wo => wo.WorkNeeded)
-          //    .WithRequired(wi => wi.NeededForWorkOrder)
-          //    .HasForeignKey(wi => wi.NeededForWorkOrderId)
-          //    .WillCascadeOnDelete(false);
-
-          //this.HasMany(wo => wo.WorkPerformed)
-          //    .WithRequired(wi => wi.PerformedForWorkOrder)
-          //    .HasForeignKey(wi => wi.PerformedForWorkOrderId)
-          //    .WillCascadeOnDelete(false);
-
-          //this.HasMany(wo => wo.PartsInstalled)
-          //    .WithRequired(wi => wi.PartInstalledForWorkOrder)
-          //    .HasForeignKey(wi => wi.PartInstalledForWorkOrderId)
-          //    .WillCascadeOnDelete(false);
+          //this.HasMany(wo => wo.OrderedWorkItems)
+          //    .WithRequired(wi => wi.WorkOrder)
+          //    .HasForeignKey(wi => wi.WorkOrderId);
+          //this.HasMany(wo => wo.NeededWorkItems)
+          //    .WithRequired(wi => wi.WorkOrder)
+          //    .HasForeignKey(wi => wi.WorkOrderId);
+          //this.HasMany(wo => wo.PerformedWorkItems)
+          //    .WithRequired(wi => wi.WorkOrder)
+          //    .HasForeignKey(wi => wi.WorkOrderId);
+          //this.HasMany(wo => wo.PartInstalleds)
+          //    .WithRequired(wi => wi.WorkOrder)
+          //    .HasForeignKey(wi => wi.WorkOrderId);
         }
+      }
+
+      public class ClientConfiguration : BaseIdConfiguration<Client>
+      {
+
+      }
+
+      public class VehicleConfiguration : BaseIdConfiguration<Vehicle>
+      {
+
       }
 
       public class WorkItemConfiguration : BaseIdConfiguration<WorkItem>
       {
         public WorkItemConfiguration()
         {
-          this.Ignore(wi => wi.JournalingId);
         }
       }
 
-      public class ClientConfiguration: BaseIdConfiguration<Client>
-      {
-        
-      }
+      //public abstract class WorkItemBaseConfiguration<T> : BaseIdConfiguration<T> where T : WorkItem
+      //{
+      //  public WorkItemBaseConfiguration()
+      //    : base(true)
+      //  {
+      //    //this.Map<T>(wi => wi.ToTable("WorkItem", SchemaName));
+      //  }
+      //}
 
-      public class VehicleConfiguration:BaseIdConfiguration<Vehicle>
-      {
-         
-      }
+      //public class OrderedWorkConfiguration : WorkItemBaseConfiguration<OrderedWorkItem>
+      //{
+      //}
+
+      //public class NeededWorkConfiguration : WorkItemBaseConfiguration<NeededWorkItem>
+      //{
+      //}
+
+      //public class PerformedWorkConfiguration : BaseIdConfiguration<PerformedWorkItem>
+      //{
+      //}
+
+      //public class PartInstalledConfiguration : BaseIdConfiguration<PartInstalled>
+      //{
+      //}
     }
   }
 }

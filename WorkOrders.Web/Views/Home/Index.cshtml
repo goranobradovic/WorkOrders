@@ -21,7 +21,7 @@
             </article>
             <article class="current-item" data-bind="with:selectedWorkOrder, visible: selectedWorkOrder">
                 <script id="tmpl-simpleWorkItems" type="text/html">
-                    <ul data-bind="foreach:$data" class="unstyledList">
+                    <ul data-bind="foreach:$data.items" class="unstyledList">
                         <li>
                             <div class="input-append">
                                 <input type="text" data-bind="value:Name" class="input-block-level" />
@@ -32,7 +32,7 @@
                     <button data-bind="click:$root.addWorkItem" class="btn pull-right not-printable input-block-level"><i class="icon-plus"></i>Dodaj</button>
                 </script>
                 <script id="tmpl-tabledWorkItems" type="text/html">
-                    <table class="table table-bordered" data-bind="visible:$data.length">
+                    <table class="table table-bordered" data-bind="visible:$data.items.length">
                         <thead>
                             <tr>
                                 <th>r.b.</th>
@@ -42,7 +42,7 @@
                                 <th>Vrijednost</th>
                             </tr>
                         </thead>
-                        <tbody data-bind="foreach:$data">
+                        <tbody data-bind="foreach:$data.items">
                             <tr class="not-printable">
                                 <td data-bind="text:$index() + 1"></td>
                                 <td>
@@ -80,7 +80,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="4"><strong class="pull-right">Ukupno</strong></td>
-                                <td colspan="1"><strong class="pull-right" data-bind="text:$root.itemPriceSum($data)"></strong></td>
+                                <td colspan="1"><strong class="pull-right" data-bind="text:sum"></strong></td>
                             </tr>
                         </tfoot>
                     </table>
@@ -131,11 +131,11 @@
                     <legend>Podaci o nalogu</legend>
                     <fieldset>
                         <legend>Tražene usluge</legend>
-                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data: { items: WorkOrdered, type: 3} }"></section>
+                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data: WorkItemsFiltered(1) }"></section>
                     </fieldset>
                     <fieldset>
                         <legend>Potrebni radovi</legend>
-                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data:WorkNeeded }"></section>
+                        <section data-bind="template:{ name: 'tmpl-simpleWorkItems', data: WorkItemsFiltered(2) }"></section>
                     </fieldset>
                 </fieldset>
                 <fieldset class="work-limits">
@@ -176,11 +176,11 @@
                     <legend>Izvještaj o izvršenju naloga</legend>
                     <fieldset class="work-info">
                         <legend>Izvršeni radovi</legend>
-                        <section data-bind="template:{ name: 'tmpl-tabledWorkItems', data:WorkPerformed }"></section>
+                        <section data-bind="template:{ name: 'tmpl-tabledWorkItems',  data: WorkItemsFiltered(3) }"></section>
                     </fieldset>
                     <fieldset class="parts-info">
                         <legend>Ugrađeni dijelovi</legend>
-                        <section data-bind="template:{ name: 'tmpl-tabledWorkItems', data:PartsInstalled }"></section>
+                        <section data-bind="template:{ name: 'tmpl-tabledWorkItems',  data: WorkItemsFiltered(4) }"></section>
                     </fieldset>
                 </fieldset>
                 <section>
@@ -201,7 +201,7 @@
                             </tr>
                             <tr>
                                 <th>Ukupno</th>
-                                <td><span class="pull-right" data-bind="text:TotalSum"></span></td>
+                                <td><strong class="pull-right" data-bind="text:TotalSum"></strong></td>
                             </tr>
                         </table>
                         <label class="input-prepend"><span class="add-on">Datum završetka</span><input class="input-medium"  type="datetime-local" class="" value="@DateTime.Now" /></label>

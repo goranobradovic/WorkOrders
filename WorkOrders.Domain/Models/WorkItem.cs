@@ -8,15 +8,16 @@ using WorkOrders.Domain.Models.Common;
 
 namespace WorkOrders.Domain.Models
 {
+  public enum WorkItemType
+  {
+    Ordered = 1,
+    Needed = 2,
+    Performed = 3,
+    PartInstalled = 4
+  }
+
   public class WorkItem : BaseModel
   {
-    public enum WorkItemType
-    {
-      Ordered = 1,
-      Needed = 2,
-      Performed = 3,
-      PartInstalled = 4
-    }
 
     public string Name { get; set; }
 
@@ -28,8 +29,10 @@ namespace WorkOrders.Domain.Models
 
     public WorkItemType Type { get; set; }
 
-    public virtual long WorkOrderId { get; set; }
+    public long WorkOrderId { get; set; }
 
     public virtual WorkOrder WorkOrder { get; set; }
+
   }
+
 }

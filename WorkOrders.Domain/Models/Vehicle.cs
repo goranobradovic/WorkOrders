@@ -2,7 +2,7 @@
 
 namespace WorkOrders.Domain.Models
 {
-  public class Vehicle : BaseModel
+  public class Vehicle : BaseJournalingModel
   {
     /// <summary>
     /// Gets or sets the manufacturer.

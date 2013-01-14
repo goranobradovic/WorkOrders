@@ -79,6 +79,16 @@
         self.ApprovedMax = ko.observable(false);
         //self.Approved = ko.observable();
         //self.RequestForEstimate = ko.observable();
+        self.WorkItemsFiltered = function (type) {
+            return ko.dependentObservable(function () {
+                var items = self.WorkItems().filter(function(item) { return item.Type() == type; });
+                return {
+                    items: items,
+                    sum: app.vm.itemPriceSum(items),
+                    type: type
+                };
+            });
+        }.bind(self);
 
         self.WorkOrdered = ko.computed(function () {
             return self.WorkItems().filter(function (item) { return item.Type() == 1; });
