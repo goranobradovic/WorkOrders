@@ -32,11 +32,11 @@ namespace WorkOrders.Domain.Models
     public override int SaveChanges()
     {
       var now = DateTime.Now;
-      foreach (var vehicle in ChangeTracker.Entries<Vehicle>().Where(v => v.State == EntityState.Modified))
-      {
-        vehicle.State = EntityState.Added;
-        vehicle.Entity.Id = 0;
-      }
+      //foreach (var vehicle in ChangeTracker.Entries<Vehicle>().Where(v => v.State == EntityState.Modified))
+      //{
+      //  vehicle.State = EntityState.Added;
+      //  vehicle.Entity.Id = 0;
+      //}
       foreach (var workOrder in ChangeTracker.Entries<WorkOrder>())
       {
         workOrder.Entity.DateModified = now;

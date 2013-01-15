@@ -45,9 +45,14 @@
                     value(ev.date.valueOf());
                 });
         },
-        update: function (element, valueAccessor) {
+        update: function(element, valueAccessor) {
             var value = valueAccessor();
-            $(element).datepicker('setValue', value());
+            if (value()) {
+                $(element).datepicker('setValue', value());
+            }
+            else {
+                $(element).val('');
+            }
         }
     };
 
