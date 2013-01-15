@@ -15,8 +15,8 @@ namespace WorkOrders.Domain.Models
     public WorkOrder()
     {
       this.DateModified = DateTime.Now;
-      this.Vehicle = new Vehicle();
-      this.Client = new Client();
+      //this.Vehicle = new Vehicle();
+      //this.Client = new Client();
       this.WorkItems = new Collection<WorkItem>();
     }
 

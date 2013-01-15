@@ -72,7 +72,8 @@
         logger.info("querying WorkOrders");
 
         var query = entityModel.EntityQuery.from("WorkOrders")
-            .expand("WorkItems", "Vehicle", "Customer");
+            .take(20)
+            .expand("WorkItems, Vehicle, Client");
 
         if (!vm.includeDone()) {
             query = query.where("CompletionDate", "==", null);
@@ -97,10 +98,10 @@
 
     function createNewWorkOrder() {
         var wo = vm.metadata.WorkOrder.createEntity();
-        wo.Client(vm.metadata.Client.createEntity());
-        wo.Vehicle(vm.metadata.Vehicle.createEntity());
         manager.addEntity(wo);
         vm.workOrders.push(wo);
+        wo.Client(vm.metadata.Client.createEntity());
+        wo.Vehicle(vm.metadata.Vehicle.createEntity());
         vm.save();
         logger.success("work order created");
     }

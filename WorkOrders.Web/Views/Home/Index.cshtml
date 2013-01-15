@@ -9,7 +9,7 @@
 </header>
 
 <div id="main-content">
-    @if (@User.Identity.IsAuthenticated /* && User.IsInRole(WorkOrders.Web.Infrastructure.Constants.RoleNames.Employee)*/)
+    @if (User.Identity.IsAuthenticated /* && User.IsInRole(WorkOrders.Web.Infrastructure.Constants.RoleNames.Employee)*/)
     {
         <section id="workOrders" style="display: none" data-bind="visible: show">
             <article class="item-list not-printable">
