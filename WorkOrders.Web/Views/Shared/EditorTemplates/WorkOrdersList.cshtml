@@ -1,0 +1,6 @@
+﻿@model ICollection<WorkOrders.Domain.Models.WorkOrder>
+
+
+<ul data-bind="foreach: workOrders">
+    <li data-bind="text: Number, click: $parent.selectWorkOrder, css: { active: $data == $parent.selectedWorkOrder() }"></li>
+</ul>

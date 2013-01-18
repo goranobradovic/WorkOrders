@@ -1,0 +1,154 @@
+﻿@Html.Editor("WorkItems", "WorkItems")
+<header>
+    <section>
+        <div class="logo">
+            <img src="@Url.Content("~/Content/images/logo.png")" alt="logo"/>
+        </div>
+    </section>
+    <section class="pull-right">
+        <label class="input-prepend"><span class="add-on">Radni nalog br.</span><input type="text" data-bind="value: Number"></input></label>
+        <label class="input-prepend"><span class="add-on">Korisnik</span><input type="text" class="ui-autocomplete" data-bind="value: Employee" /></label>
+        @*<label class="input-prepend"><span class="add-on">Datum prijema</span><input type="datetime-local" class="" data-bind="value:DateReceived" /></label>*@
+        <label class="input-prepend" data-date-format="@Html.DateFormat()" data-bind="attr: { 'data-date': DateReceived }">
+            <span class="add-on">Datum prijema</span>
+            <input class="datepicker" data-date-format="@Html.DateFormat()" type="text" data-bind="datepicker: DateReceived">
+            @*<span class="add-on"><i class="icon-th"></i></span>*@
+        </label>
+    </section>
+</header>
+<fieldset class="customer-info">
+    <legend>Podaci o naručiocu/vozilu</legend>
+    <section data-bind="with: Client">
+        <label class="input-prepend"><span class="add-on">Naručilac</span><input type="text" class="" data-bind="value: Name" /></label>
+        <label class="input-prepend"><span class="add-on">Adresa</span><input type="text" class="" data-bind="value: Address" /></label>
+        <label class="input-prepend"><span class="add-on">Telefon</span><input type="text" class="" data-bind="value: Phone" /></label>
+        <label class="input-prepend"><span class="add-on">Kontakt osoba</span><input type="text" class="" data-bind="value: Contact" /></label>
+    </section>
+    <section data-bind="with: Vehicle">
+        <label class="input-prepend">
+            <span class="add-on">Marka | Model</span>
+            <input type="text" id="Vehicle_Manufacturer" class="input-half inline" data-bind="value: Manufacturer"
+                placeholder="marka" data-provide="typeahead" data-source='["Audi", "BMW", "Citroen", "Fiat", "Hyndai", "Jeep", "Lancia", "Mercedes", "Nissan", "Opel", "Zastava"]' />
+            <input type="text" class="input-half" data-bind="value: Model" placeholder="model" />
+        </label>
+        <label class="input-prepend">
+            <span class="add-on">Reg. br. | Stanje km</span>
+            <input type="text" class="input-half inline" data-bind="value: RegistrationNumber" placeholder="npr. M17-E-231" />
+            <input type="number" class="input-half" data-bind="value: Odometer" placeholder="npr. 178233" />
+        </label>
+        <label class="input-prepend"><span class="add-on">Broj šasije</span><input type="text" class="" data-bind="value: VIN" /></label>
+        <label class="input-prepend"><span class="add-on">Broj motora</span><input type="text" class="" data-bind="value: EngineNumber" /></label>
+    </section>
+</fieldset>
+<fieldset class="order-info">
+    <legend>Podaci o nalogu</legend>
+    <fieldset>
+        <legend>Tražene usluge</legend>
+        <section data-bind="template: { name: 'tmpl-simpleWorkItems', data: WorkItemsFiltered(1) }"></section>
+    </fieldset>
+    <fieldset>
+        <legend>Potrebni radovi</legend>
+        <section data-bind="template: { name: 'tmpl-simpleWorkItems', data: WorkItemsFiltered(2) }"></section>
+    </fieldset>
+</fieldset>
+<fieldset class="work-limits">
+    <legend>Vrijednost i rokovi radova</legend>
+    <section>
+        <label class="checkbox">
+            <input type="checkbox" data-bind="checked: RequestForEstimate">
+            Zahtjev za procjenu
+        </label>
+        <label class="text" data-bind="visible: RequestForEstimate">
+            Početna procjena radova
+                            <input type="text" class="input-medium" data-bind="value: EstimatedValue" />
+        </label>
+    </section>
+    <section>
+        <label class="checkbox">
+            <input type="checkbox" data-bind="checked: ApprovedMax">
+            Max vrijednost
+        </label>
+        <label class="text" data-bind="visible: ApprovedMax">
+            Odobrena MAX vrijednost
+                            <input type="text" class="input-medium" data-bind="value: ApprovedMaxValue" />
+        </label>
+    </section>
+    <section>
+        <label class="checkbox">
+            <input type="checkbox" data-bind="checked: Approved">
+            Odobrenje
+        </label>
+        <span data-bind="visible: Approved">Naručilac ne želi procjenu</span>
+    </section>
+    <section>
+        <label>Rok za završetak</label>
+        <div class="input-prepend" data-date-format="@Html.DateFormat()" data-bind="attr: { 'data-date': Deadline() || new Date() }">
+            <input class="datepicker" data-date-format="@Html.DateFormat()" type="text" data-bind="datepicker: Deadline">
+            @*<span class="add-on"><i class="icon-th"></i></span>*@
+        </div>
+    </section>
+</fieldset>
+<fieldset>
+    <legend>Izvještaj o izvršenju naloga</legend>
+    <fieldset class="work-info">
+        <legend>Izvršeni radovi</legend>
+        <section data-bind="template: { name: 'tmpl-tabledWorkItems', data: WorkItemsFiltered(3) }"></section>
+    </fieldset>
+    <fieldset class="parts-info">
+        <legend>Ugrađeni dijelovi</legend>
+        <section data-bind="template: { name: 'tmpl-tabledWorkItems', data: WorkItemsFiltered(4) }"></section>
+    </fieldset>
+</fieldset>
+<section>
+    <fieldset>
+        <legend>Savjet servisa</legend>
+        <textarea data-bind="value: Advice" class="input-block-level" rows="3"></textarea>
+    </fieldset>
+    <fieldset>
+        <legend>&nbsp;</legend>
+        <table class="table">
+            <tr>
+                <th>Ukupno dijelovi</th>
+                <td><span class="pull-right" data-bind="text: PartsInstalledSum"></span></td>
+            </tr>
+            <tr>
+                <th>Ukupno rad</th>
+                <td><span class="pull-right" data-bind="text: WorkPerformedSum"></span></td>
+            </tr>
+            <tr>
+                <th>Ukupno</th>
+                <td><strong class="pull-right" data-bind="text: TotalSum"></strong></td>
+            </tr>
+        </table>
+        <label class="input-prepend" data-date-format="@Html.DateFormat()" data-bind="attr: { 'data-date': CompletionDate() || new Date() }">
+            <span class="add-on">Datum završetka</span>
+            <input class="datepicker" data-date-format="@Html.DateFormat()" type="text" data-bind="datepicker: CompletionDate">
+            @*<span class="add-on"><i class="icon-th"></i></span>*@
+        </label>
+    </fieldset>
+</section>
+<section class="work-footer">
+    <section>
+        <label class="input-prepend"><span class="add-on">Za servis</span><input type="text" class="input-medium" /></label>
+        <label class="input-prepend printable-only">
+            <span class="add-on">Potpis</span><input type="text" class="input-medium" />
+        </label>
+    </section>
+    <section>
+        <label class="input-prepend"><span class="add-on">Datum</span><input type="datetime-local" class="input-medium" /></label>
+        <br />
+        <br />
+        <label style="text-align: center" class="printable-only">M.P.</label>
+    </section>
+    <section>
+        <label class="input-prepend"><span class="add-on">Vozilo preuzeo</span><input type="text" class="input-medium" /></label>
+        <label class="input-prepend printable-only">
+            <span class="add-on">Potpis</span><input type="text" class="input-medium" />
+        </label>
+    </section>
+</section>
+<footer class="not-printable">
+    <button class="btn btn-inverse" onclick="window.print()">Odštampaj nalog</button>
+    <button class="btn btn-danger">Zatvori nalog</button>
+    <button class="btn btn-primary" data-bind="click: $root.save">Sačuvaj</button>
+</footer>

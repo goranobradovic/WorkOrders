@@ -1,0 +1,68 @@
+﻿@model ICollection<WorkOrders.Domain.Models.WorkItem>
+
+<script id="tmpl-simpleWorkItems" type="text/html">
+    <ul data-bind="foreach: $data.items" class="unstyledList">
+        <li>
+            <div class="input-append">
+                <input type="text" data-bind="value: Name" class="input-block-level" />
+                <button class="btn not-printable" data-bind="click: $root.removeWorkItem"><i class="icon-trash"></i></button>
+            </div>
+        </li>
+    </ul>
+    <button data-bind="click: $root.addWorkItem" class="btn pull-right not-printable input-block-level"><i class="icon-plus"></i>@Localize.Add</button>
+</script>
+<script id="tmpl-tabledWorkItems" type="text/html">
+    <table class="table table-bordered" data-bind="visible: $data.items.length">
+        <thead>
+            <tr>
+                <th>r.b.</th>
+                <th>Naziv</th>
+                <th>Količina</th>
+                <th>Jed. Mjere</th>
+                <th>Vrijednost</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: $data.items">
+            <tr class="not-printable">
+                <td data-bind="text: $index() + 1"></td>
+                <td>
+                    <input type="text" class="input-small" data-bind="value: Name" />
+                </td>
+                <td>
+                    <input type="number" class="input-micro" data-bind="value: Amount" />
+                </td>
+                <td>
+                    <input type="text" class="input-mini" data-bind="value: Unit"
+                        data-provide="typeahead" data-source='["komad", "sat"]' />
+                </td>
+                <td>
+                    <div class="input-append">
+                        <input type="text" data-bind="value: FormattedValue" class="input-micro" /><span class="add-on">KM</span>
+                    </div>
+                </td>
+            </tr>
+            <tr class="printable-only">
+                <td data-bind="text: $index() + 1"></td>
+                <td>
+                    <span data-bind="text: Name" />
+                </td>
+                <td>
+                    <span data-bind="text: Amount" />
+                </td>
+                <td>
+                    <span data-bind="text: Unit" />
+                </td>
+                <td>
+                    <span class="pull-right" data-bind="text: FormattedValue" />
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"><strong class="pull-right">Ukupno</strong></td>
+                <td colspan="1"><strong class="pull-right" data-bind="text: sum"></strong></td>
+            </tr>
+        </tfoot>
+    </table>
+    <button data-bind="click: $root.addWorkItem" class="btn pull-right not-printable input-block-level"><i class="icon-plus"></i>Dodaj</button>
+</script>

@@ -1,0 +1,19 @@
+﻿@model WorkOrders.Web.Models.WorkOrdersViewModel
+
+
+<section id="workOrders" style="display: none" data-bind="visible: show">
+    <article class="item-list not-printable">
+        <h4>@Localize.OpenOrders</h4>
+        @Html.EditorFor(m => m.WorkOrdersList, "WorkOrdersList")
+        <button class="btn-primary" data-bind="click: addWorkOrder"><i class="icon-edit icon-white"></i>@Localize.NewOrder</button>
+    </article>
+    <article class="current-item" data-bind="with: selectedWorkOrder, visible: selectedWorkOrder">
+        @Html.EditorFor(m => m.SelectedWokOrder)
+    </article>
+</section>
+<script type="text/javascript">
+    // workaround around bootstrap issue https://github.com/twitter/bootstrap/issues/5955
+    //$(document).ready(function () {
+        //$("#Vehicle_Manufacturer").typeahead({ source: app.autocomplete.Manufacturers });
+    //});
+</script>
