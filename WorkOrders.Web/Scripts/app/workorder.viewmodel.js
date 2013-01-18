@@ -61,7 +61,10 @@
     //vm.includeDone.subscribe(getWorkOrders);
 
     // bind view to the viewmodel
-    ko.applyBindings(vm);
+    $(document).ready(function() {
+        $('.datepicker').datepicker();
+        ko.applyBindings(vm);
+    });
 
     /* Private functions */
 

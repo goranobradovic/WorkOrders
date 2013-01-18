@@ -5,13 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
+using Resources;
 
 namespace WorkOrders.Web.Models
 {
     public class UsersContext : DbContext
     {
+        public const string ConnectionString = "DefaultConnection";
+
         public UsersContext()
-            : base("DefaultConnection")
+            : base(ConnectionString)
         {
         }
 
@@ -25,12 +28,13 @@ namespace WorkOrders.Web.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public int? CultureId { get; set; }
     }
 
     public class RegisterExternalLoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(ResourceType = typeof(Resources.Common))]
         public string UserName { get; set; }
 
         public string ExternalLoginData { get; set; }
@@ -50,7 +54,7 @@ namespace WorkOrders.Web.Models
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
+        [Display(ResourceType = typeof(Common), Name = "ConfirmPassword")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
@@ -58,15 +62,15 @@ namespace WorkOrders.Web.Models
     public class LoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(ResourceType = typeof(Resources.Common))]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(ResourceType = typeof(Resources.Common))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(ResourceType = typeof(Resources.Common))]
         public bool RememberMe { get; set; }
     }
 

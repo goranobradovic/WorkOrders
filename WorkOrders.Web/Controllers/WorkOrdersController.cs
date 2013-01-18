@@ -17,11 +17,7 @@ namespace WorkOrders.Web.Controllers
     {
         readonly EFContextProvider<WorkOrdersContext> _contextProvider =
             new EFContextProvider<WorkOrdersContext>();
-
-        public WorkOrdersController()
-        {
-        }
-
+        
         [HttpGet]
         public string Metadata()
         {
