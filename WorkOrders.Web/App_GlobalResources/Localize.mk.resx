@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Додадете</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Износ</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Работни налози</value>
+  </data>
+  <data name="BrandAndModel" xml:space="preserve">
+    <value>Бренд | Модел</value>
+  </data>
+  <data name="CloseOrder" xml:space="preserve">
+    <value>Затвори цел</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Клиент</value>
+  </data>
+  <data name="CustomerAndVehicleData" xml:space="preserve">
+    <value>Клиент / Возило податоци</value>
+  </data>
+  <data name="CustomerDoesNotWantEstimate" xml:space="preserve">
+    <value>Клиент не сака проценка</value>
+  </data>
+  <data name="DateFormat" xml:space="preserve">
+    <value>мм / дд / гггг</value>
+  </data>
+  <data name="IE" xml:space="preserve">
+    <value>односно</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="NecessaryServices" xml:space="preserve">
+    <value>Потребните услуги</value>
+  </data>
+  <data name="NewOrder" xml:space="preserve">
+    <value>Нов поредок</value>
+  </data>
+  <data name="OpenOrders" xml:space="preserve">
+    <value>Отворен нарачки</value>
+  </data>
+  <data name="OrderedServices" xml:space="preserve">
+    <value>Нареди услуги</value>
+  </data>
+  <data name="PartsInstalled" xml:space="preserve">
+    <value>Инсталиран делови</value>
+  </data>
+  <data name="PlaceForStamp" xml:space="preserve">
+    <value>(Печат)</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="PrintOrder" xml:space="preserve">
+    <value>Верзија за</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Освежи</value>
+  </data>
+  <data name="RegNrAndOdometer" xml:space="preserve">
+    <value>Reg.</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Отстрани</value>
+  </data>
+  <data name="RowNumber" xml:space="preserve">
+    <value>r.n.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Зачувај</value>
+  </data>
+  <data name="SelectedWokOrder_Advice" xml:space="preserve">
+    <value>Работилница совети</value>
+  </data>
+  <data name="SelectedWokOrder_Approved" xml:space="preserve">
+    <value>Одобрени</value>
+  </data>
+  <data name="SelectedWokOrder_ApprovedMax" xml:space="preserve">
+    <value>Одобрени максимум</value>
+  </data>
+  <data name="SelectedWokOrder_ApprovedMaxValue" xml:space="preserve">
+    <value>Одобрени макс.</value>
+  </data>
+  <data name="SelectedWokOrder_CompletionDate" xml:space="preserve">
+    <value>Срок</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Address" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Contact" xml:space="preserve">
+    <value>Лице за контакт</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Name" xml:space="preserve">
+    <value>Клиент</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Telephone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="SelectedWokOrder_DateModified" xml:space="preserve">
+    <value>Датум</value>
+  </data>
+  <data name="SelectedWokOrder_DateReceived" xml:space="preserve">
+    <value>Прием датум</value>
+  </data>
+  <data name="SelectedWokOrder_Deadline" xml:space="preserve">
+    <value>Работат рок</value>
+  </data>
+  <data name="SelectedWokOrder_DeliveredTo" xml:space="preserve">
+    <value>Доставени до</value>
+  </data>
+  <data name="SelectedWokOrder_Employee" xml:space="preserve">
+    <value>Корисникот</value>
+  </data>
+  <data name="SelectedWokOrder_EstimatedValue" xml:space="preserve">
+    <value>Проценетата вредност</value>
+  </data>
+  <data name="SelectedWokOrder_ForWorkShop" xml:space="preserve">
+    <value>За работилница</value>
+  </data>
+  <data name="SelectedWokOrder_Number" xml:space="preserve">
+    <value>Работа со цел Бр</value>
+  </data>
+  <data name="SelectedWokOrder_RequestForEstimate" xml:space="preserve">
+    <value>Барање за проценка</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_EngineNumber" xml:space="preserve">
+    <value>Број на мотор</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_Manufacturer" xml:space="preserve">
+    <value>Бренд</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_Model" xml:space="preserve">
+    <value>Модел</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_RegistrationNumber" xml:space="preserve">
+    <value>Reg.</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_VIN" xml:space="preserve">
+    <value>ВИН</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>Потпис</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Вкупно</value>
+  </data>
+  <data name="TotalParts" xml:space="preserve">
+    <value>Вкупно делови</value>
+  </data>
+  <data name="TotalWork" xml:space="preserve">
+    <value>Вкупно работа</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Единица</value>
+  </data>
+  <data name="Units" xml:space="preserve">
+    <value>&amp;quot;Парче&amp;quot;, &amp;quot;час&amp;quot;</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Корисникот</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Вредност</value>
+  </data>
+  <data name="WorkExecutionReport" xml:space="preserve">
+    <value>Работат извршување извештај</value>
+  </data>
+  <data name="WorkLimitsAndDeadlines" xml:space="preserve">
+    <value>Работа граници и рокови</value>
+  </data>
+  <data name="WorkOrderData" xml:space="preserve">
+    <value>Работа со цел инфо</value>
+  </data>
+  <data name="WorkPerformed" xml:space="preserve">
+    <value>Извршената работа</value>
+  </data>
+</root>

@@ -55,8 +55,8 @@
         //self.Advice = data.Advice || '';
         //self.Approved = ko.observable(data.Approved || false);
         //self.ApprovedMaxValue = data.ApprovedMaxValue || false;
-        //self.Client = new Client(data.Client);
-        //self.ClientId = ko.observable(data.ClientId);
+        //self.Customer = new Customer(data.Customer);
+        //self.CustomerId = ko.observable(data.CustomerId);
         //self.CompletionDate = data.CompletionDate;
         //self.CreatedBy = data.CreatedBy;
         //self.DateModified = data.DateModified;
@@ -69,14 +69,15 @@
         //self.RequestForEstimate = data.RequestForEstimate;
         //self.Vehicle = new Vehicle(data.Vehicle);
         //self.VehicleId = data.VehicleId;
+        if (!self.DateReceived()) {
+            self.DateReceived(new Date());
+        }
 
         //self.WorkOrdered = ko.observableArray([]);
-        self.DateReceived(new Date());
 
         // Non-persisted properties
 
         self.ErrorMessage = ko.observable();
-        self.ApprovedMax = ko.observable(false);
         //self.Approved = ko.observable();
         //self.RequestForEstimate = ko.observable();
         self.WorkItemsFiltered = function (type) {
@@ -85,7 +86,8 @@
                 return {
                     items: items,
                     sum: app.vm.itemPriceSum(items),
-                    type: type
+                    type: type,
+                    add: app.vm.addWorkItem
                 };
             });
         }.bind(self);

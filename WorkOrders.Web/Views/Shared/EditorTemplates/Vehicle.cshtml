@@ -1,0 +1,21 @@
+﻿@model WorkOrders.Domain.Models.Vehicle
+
+<label class="input-prepend">
+    <span class="add-on" @Html.DataForAttr("BrandAndModel")>@Html.Localize("BrandAndModel")</span>
+    @{
+        var restore = ViewBag.HideLabel;
+        ViewBag.HideLabel = true; 
+    }
+    @Html.EditorFor(m => m.Manufacturer, new { htmlAttributes = new { @class = "input-half inline", placeholder = Html.DisplayNameFor(m => m.Manufacturer) } })
+    @Html.EditorFor(m => m.Model, new { htmlAttributes = new { @class = "input-half", placeholder = Html.DisplayNameFor(m => m.Model) } })
+</label>
+<label class="input-prepend">
+    <span class="add-on" @Html.DataForAttr("RegNrAndOdometer")>@Html.Localize("RegNrAndOdometer")</span>
+    @Html.EditorFor(m => m.RegistrationNumber, new { htmlAttributes = new { @class = "input-half inline", placeholder = Localize.IE + " A21-E-622" } })
+    @Html.EditorFor(m => m.Odometer, new { htmlAttributes = new { @class = "input-half", placeholder = Localize.IE + " 85920" } })
+</label>
+@{
+    ViewBag.HideLabel = restore;
+}
+@Html.EditorFor(m => m.VIN)
+@Html.EditorFor(m => m.EngineNumber)

@@ -1,0 +1,19 @@
+﻿@{
+    object ModelValue = ViewData.TemplateInfo.FormattedModelValue;
+    if (ViewData.TemplateInfo.FormattedModelValue == ViewData.ModelMetadata.Model)
+    {
+        ModelValue = String.Format(System.Globalization.CultureInfo.CurrentCulture,
+                                     "{0:0.00}", ViewData.ModelMetadata.Model);
+    }
+
+    if (ViewBag.HideLabel != true)
+    {
+        Layout = "_Label.cshtml";
+    }
+    var htmlAttributes = System.Web.Mvc.HtmlHelper.AnonymousObjectToHtmlAttributes(
+        ViewData.ContainsKey("htmlAttributes") ?
+            ViewData["htmlAttributes"] : new { });
+    htmlAttributes["class"] = "input " + htmlAttributes["class"] ?? "";
+    htmlAttributes["data-bind"] = string.Format("value:{0}", ViewData.ModelMetadata.PropertyName);
+}
+@Html.TextBox(string.Empty, ModelValue, htmlAttributes)

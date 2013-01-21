@@ -112,189 +112,189 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Eklemek</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Amount</value>
+    <value>Miktar</value>
   </data>
   <data name="AppTitle" xml:space="preserve">
-    <value>Work orders</value>
+    <value>İş emirleri</value>
   </data>
   <data name="BrandAndModel" xml:space="preserve">
-    <value>Brand | Model</value>
+    <value>Marka | Model</value>
   </data>
   <data name="CloseOrder" xml:space="preserve">
-    <value>Close order</value>
+    <value>Kapat sipariş</value>
   </data>
   <data name="Customer" xml:space="preserve">
-    <value>Customer</value>
+    <value>Müşteri</value>
   </data>
   <data name="CustomerAndVehicleData" xml:space="preserve">
-    <value>Customer / Vehicle data</value>
+    <value>Müşteri / Araç verileri</value>
   </data>
   <data name="CustomerDoesNotWantEstimate" xml:space="preserve">
-    <value>Customer does not want estimation</value>
+    <value>Müşteri tahmini istemiyor</value>
   </data>
   <data name="DateFormat" xml:space="preserve">
-    <value>mm/dd/yyyy</value>
+    <value>aa / gg / yyyy</value>
   </data>
   <data name="IE" xml:space="preserve">
-    <value>i.e.</value>
+    <value>yani</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Isim</value>
   </data>
   <data name="NecessaryServices" xml:space="preserve">
-    <value>Necessary services</value>
+    <value>Gerekli hizmetler</value>
   </data>
   <data name="NewOrder" xml:space="preserve">
-    <value>New order</value>
+    <value>Yeni sipariş</value>
   </data>
   <data name="OpenOrders" xml:space="preserve">
-    <value>Open orders</value>
+    <value>Aç emir</value>
   </data>
   <data name="OrderedServices" xml:space="preserve">
-    <value>Ordered services</value>
+    <value>Sıralı hizmetleri</value>
   </data>
   <data name="PartsInstalled" xml:space="preserve">
-    <value>Installed parts</value>
+    <value>Yüklü parçaları</value>
   </data>
   <data name="PlaceForStamp" xml:space="preserve">
-    <value>(stamp)</value>
+    <value>(Damga)</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Fiyat</value>
   </data>
   <data name="PrintOrder" xml:space="preserve">
-    <value>Print order</value>
+    <value>Baskı sırası</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Yenile</value>
   </data>
   <data name="RegNrAndOdometer" xml:space="preserve">
-    <value>Reg. Nr | Odometer</value>
+    <value>Reg.</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Remove</value>
+    <value>Çıkarmak</value>
   </data>
   <data name="RowNumber" xml:space="preserve">
     <value>r.n.</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Kurtarmak</value>
   </data>
   <data name="SelectedWokOrder_Advice" xml:space="preserve">
-    <value>Workshop advice</value>
+    <value>Atölye tavsiyesi</value>
   </data>
   <data name="SelectedWokOrder_Approved" xml:space="preserve">
-    <value>Approved</value>
+    <value>Onaylı</value>
   </data>
   <data name="SelectedWokOrder_ApprovedMax" xml:space="preserve">
-    <value>Approved maximum</value>
+    <value>Onaylı maksimum</value>
   </data>
   <data name="SelectedWokOrder_ApprovedMaxValue" xml:space="preserve">
-    <value>Approved max. value</value>
+    <value>Max Onaylı.</value>
   </data>
   <data name="SelectedWokOrder_CompletionDate" xml:space="preserve">
-    <value>Completion date</value>
+    <value>Tamamlama tarihi</value>
   </data>
   <data name="SelectedWokOrder_Customer_Address" xml:space="preserve">
-    <value>Address</value>
+    <value>Adres</value>
   </data>
   <data name="SelectedWokOrder_Customer_Contact" xml:space="preserve">
-    <value>Contact person</value>
+    <value>Irtibat kişisi</value>
   </data>
   <data name="SelectedWokOrder_Customer_Name" xml:space="preserve">
-    <value>Customer</value>
+    <value>Müşteri</value>
   </data>
   <data name="SelectedWokOrder_Customer_Phone" xml:space="preserve">
-    <value>Phone</value>
+    <value>Telefon</value>
   </data>
   <data name="SelectedWokOrder_Customer_Telephone" xml:space="preserve">
-    <value>Telephone</value>
+    <value>Telefon</value>
   </data>
   <data name="SelectedWokOrder_DateModified" xml:space="preserve">
-    <value>Date</value>
+    <value>Tarih</value>
   </data>
   <data name="SelectedWokOrder_DateReceived" xml:space="preserve">
-    <value>Reception date</value>
+    <value>Alım tarihi</value>
   </data>
   <data name="SelectedWokOrder_Deadline" xml:space="preserve">
-    <value>Work deadline</value>
+    <value>Tarihine çalışın</value>
   </data>
   <data name="SelectedWokOrder_DeliveredTo" xml:space="preserve">
-    <value>Delivered to</value>
+    <value>Teslim</value>
   </data>
   <data name="SelectedWokOrder_Employee" xml:space="preserve">
-    <value>User</value>
+    <value>Kullanıcı</value>
   </data>
   <data name="SelectedWokOrder_EstimatedValue" xml:space="preserve">
-    <value>Estimated value</value>
+    <value>Tahmini değeri</value>
   </data>
   <data name="SelectedWokOrder_ForWorkShop" xml:space="preserve">
-    <value>For workshop</value>
+    <value>Tamirhaneler için</value>
   </data>
   <data name="SelectedWokOrder_Number" xml:space="preserve">
-    <value>Work order Nr</value>
+    <value>Sipariş Nr çalışın</value>
   </data>
   <data name="SelectedWokOrder_RequestForEstimate" xml:space="preserve">
-    <value>Request for estimate</value>
+    <value>Tahmin Talebi</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_EngineNumber" xml:space="preserve">
-    <value>Engine number</value>
+    <value>Motor numarası</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_Manufacturer" xml:space="preserve">
-    <value>Brand</value>
+    <value>Marka</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_Model" xml:space="preserve">
     <value>Model</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_RegistrationNumber" xml:space="preserve">
-    <value>Reg. Nr.</value>
+    <value>Reg.</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_VIN" xml:space="preserve">
     <value>VIN</value>
   </data>
   <data name="Signature" xml:space="preserve">
-    <value>Signature</value>
+    <value>Imza</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Total</value>
+    <value>Toplam</value>
   </data>
   <data name="TotalParts" xml:space="preserve">
-    <value>Total parts</value>
+    <value>Toplam parça</value>
   </data>
   <data name="TotalWork" xml:space="preserve">
-    <value>Total work</value>
+    <value>Toplam iş</value>
   </data>
   <data name="Unit" xml:space="preserve">
-    <value>Unit</value>
+    <value>Birim</value>
   </data>
   <data name="Units" xml:space="preserve">
-    <value>"piece", "hour"</value>
+    <value>&amp;quot;Parça&amp;quot;, &amp;quot;saat&amp;quot;</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>Kullanıcı</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>Value</value>
+    <value>Değer</value>
   </data>
   <data name="WorkExecutionReport" xml:space="preserve">
-    <value>Work execution report</value>
+    <value>Yürütme raporu çalışın</value>
   </data>
   <data name="WorkLimitsAndDeadlines" xml:space="preserve">
-    <value>Work limits and deadlines</value>
+    <value>Çalışma sınırları ve tarihleri</value>
   </data>
   <data name="WorkOrderData" xml:space="preserve">
-    <value>Work order info</value>
+    <value>Çalışma düzeni bilgisi</value>
   </data>
   <data name="WorkPerformed" xml:space="preserve">
-    <value>Executed work</value>
+    <value>İdam iş</value>
   </data>
 </root>

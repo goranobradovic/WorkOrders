@@ -2,7 +2,7 @@
 
 namespace WorkOrders.Domain.Models
 {
-  public class Client : BaseJournalingModel
+  public class Customer : BaseJournalingModel
   {
     /// <summary>
     /// Gets or sets the name.

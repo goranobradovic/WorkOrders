@@ -1,0 +1,9 @@
+﻿@model WorkOrders.Domain.Models.WorkItem
+
+
+<li>
+    <div class="input-append">
+        @Html.EditorFor(m => m.Name, new { HideLabel = true, htmlAttributes = new { @class = "input-block-level" } })
+        <button class="btn not-printable" data-bind="click: $root.removeWorkItem" @Html.DataForTitle("Remove")><i class="icon-trash"></i></button>
+    </div>
+</li>

@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        internal static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Work orders.
         /// </summary>
         internal static string AppTitle {
@@ -79,11 +88,83 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brand | Model.
+        /// </summary>
+        internal static string BrandAndModel {
+            get {
+                return ResourceManager.GetString("BrandAndModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close order.
+        /// </summary>
+        internal static string CloseOrder {
+            get {
+                return ResourceManager.GetString("CloseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        internal static string Customer {
+            get {
+                return ResourceManager.GetString("Customer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer / Vehicle data.
+        /// </summary>
+        internal static string CustomerAndVehicleData {
+            get {
+                return ResourceManager.GetString("CustomerAndVehicleData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer does not want estimation.
+        /// </summary>
+        internal static string CustomerDoesNotWantEstimate {
+            get {
+                return ResourceManager.GetString("CustomerDoesNotWantEstimate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mm/dd/yyyy.
         /// </summary>
         internal static string DateFormat {
             get {
                 return ResourceManager.GetString("DateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to i.e..
+        /// </summary>
+        internal static string IE {
+            get {
+                return ResourceManager.GetString("IE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Necessary services.
+        /// </summary>
+        internal static string NecessaryServices {
+            get {
+                return ResourceManager.GetString("NecessaryServices", resourceCulture);
             }
         }
         
@@ -102,6 +183,420 @@ namespace Resources {
         internal static string OpenOrders {
             get {
                 return ResourceManager.GetString("OpenOrders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordered services.
+        /// </summary>
+        internal static string OrderedServices {
+            get {
+                return ResourceManager.GetString("OrderedServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installed parts.
+        /// </summary>
+        internal static string PartsInstalled {
+            get {
+                return ResourceManager.GetString("PartsInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (stamp).
+        /// </summary>
+        internal static string PlaceForStamp {
+            get {
+                return ResourceManager.GetString("PlaceForStamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        internal static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print order.
+        /// </summary>
+        internal static string PrintOrder {
+            get {
+                return ResourceManager.GetString("PrintOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        internal static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reg. Nr | Odometer.
+        /// </summary>
+        internal static string RegNrAndOdometer {
+            get {
+                return ResourceManager.GetString("RegNrAndOdometer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        internal static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to r.n..
+        /// </summary>
+        internal static string RowNumber {
+            get {
+                return ResourceManager.GetString("RowNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workshop advice.
+        /// </summary>
+        internal static string SelectedWokOrder_Advice {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Advice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approved.
+        /// </summary>
+        internal static string SelectedWokOrder_Approved {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approved maximum.
+        /// </summary>
+        internal static string SelectedWokOrder_ApprovedMax {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_ApprovedMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approved max. value.
+        /// </summary>
+        internal static string SelectedWokOrder_ApprovedMaxValue {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_ApprovedMaxValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completion date.
+        /// </summary>
+        internal static string SelectedWokOrder_CompletionDate {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_CompletionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        internal static string SelectedWokOrder_Customer_Address {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Customer_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact person.
+        /// </summary>
+        internal static string SelectedWokOrder_Customer_Contact {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Customer_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        internal static string SelectedWokOrder_Customer_Name {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Customer_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        internal static string SelectedWokOrder_Customer_Phone {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Customer_Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telephone.
+        /// </summary>
+        internal static string SelectedWokOrder_Customer_Telephone {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Customer_Telephone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string SelectedWokOrder_DateModified {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_DateModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reception date.
+        /// </summary>
+        internal static string SelectedWokOrder_DateReceived {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_DateReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work deadline.
+        /// </summary>
+        internal static string SelectedWokOrder_Deadline {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Deadline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivered to.
+        /// </summary>
+        internal static string SelectedWokOrder_DeliveredTo {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_DeliveredTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string SelectedWokOrder_Employee {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated value.
+        /// </summary>
+        internal static string SelectedWokOrder_EstimatedValue {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_EstimatedValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For workshop.
+        /// </summary>
+        internal static string SelectedWokOrder_ForWorkShop {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_ForWorkShop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work order Nr.
+        /// </summary>
+        internal static string SelectedWokOrder_Number {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request for estimate.
+        /// </summary>
+        internal static string SelectedWokOrder_RequestForEstimate {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_RequestForEstimate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engine number.
+        /// </summary>
+        internal static string SelectedWokOrder_Vehicle_EngineNumber {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Vehicle_EngineNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand.
+        /// </summary>
+        internal static string SelectedWokOrder_Vehicle_Manufacturer {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Vehicle_Manufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        internal static string SelectedWokOrder_Vehicle_Model {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Vehicle_Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reg. Nr..
+        /// </summary>
+        internal static string SelectedWokOrder_Vehicle_RegistrationNumber {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Vehicle_RegistrationNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VIN.
+        /// </summary>
+        internal static string SelectedWokOrder_Vehicle_VIN {
+            get {
+                return ResourceManager.GetString("SelectedWokOrder_Vehicle_VIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signature.
+        /// </summary>
+        internal static string Signature {
+            get {
+                return ResourceManager.GetString("Signature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total parts.
+        /// </summary>
+        internal static string TotalParts {
+            get {
+                return ResourceManager.GetString("TotalParts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total work.
+        /// </summary>
+        internal static string TotalWork {
+            get {
+                return ResourceManager.GetString("TotalWork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit.
+        /// </summary>
+        internal static string Unit {
+            get {
+                return ResourceManager.GetString("Unit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;piece&quot;, &quot;hour&quot;.
+        /// </summary>
+        internal static string Units {
+            get {
+                return ResourceManager.GetString("Units", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        internal static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work execution report.
+        /// </summary>
+        internal static string WorkExecutionReport {
+            get {
+                return ResourceManager.GetString("WorkExecutionReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work limits and deadlines.
+        /// </summary>
+        internal static string WorkLimitsAndDeadlines {
+            get {
+                return ResourceManager.GetString("WorkLimitsAndDeadlines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work order info.
+        /// </summary>
+        internal static string WorkOrderData {
+            get {
+                return ResourceManager.GetString("WorkOrderData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Executed work.
+        /// </summary>
+        internal static string WorkPerformed {
+            get {
+                return ResourceManager.GetString("WorkPerformed", resourceCulture);
             }
         }
     }

@@ -1,0 +1,13 @@
+﻿@model String
+@{
+    if (ViewBag.HideLabel != true)
+    {
+        Layout = "_Label.cshtml";
+    }
+    var htmlAttributes = System.Web.Mvc.HtmlHelper.AnonymousObjectToHtmlAttributes(
+        ViewData.ContainsKey("htmlAttributes") ?
+            ViewData["htmlAttributes"] : new { });
+    htmlAttributes["class"] = "input-block-level " + htmlAttributes["class"] ?? "";
+    htmlAttributes["data-bind"] = string.Format("value:{0}", ViewData.ModelMetadata.PropertyName);
+}
+@Html.TextArea(string.Empty, ViewData.TemplateInfo.FormattedModelValue.ToString(), htmlAttributes)

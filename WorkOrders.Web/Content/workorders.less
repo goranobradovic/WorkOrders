@@ -25,6 +25,7 @@ input.input-micro
 
 .table
 {
+	.border-radius(0);
     /*border:1px solid @dropdownBorder;*/
     td
     {
@@ -76,6 +77,11 @@ input.input-micro
     }
 }
 
+input[type=radio], input[type=checkbox]
+{
+	min-height:12px;
+}
+
 .input-half
 {
     width: 96px;
@@ -106,11 +112,21 @@ input.input-micro
         margin-left: 0;
         padding: 0 10px;
 
+		legend{
+			margin-bottom:10px;
+		}
+
         section, fieldset
         {
             .makeColumn(5.5);
             margin-left: 5px;
             padding-left: 0;
+
+			legend
+			{
+				font-size: 18px;
+				line-height:18px;
+			}
 
             label.input-prepend, label.input-append
             {

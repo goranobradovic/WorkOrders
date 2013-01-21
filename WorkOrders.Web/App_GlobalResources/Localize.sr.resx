@@ -120,16 +120,181 @@
   <data name="Add" xml:space="preserve">
     <value>Dodaj</value>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Količina</value>
+  </data>
   <data name="AppTitle" xml:space="preserve">
     <value>Radni nalozi</value>
   </data>
+  <data name="BrandAndModel" xml:space="preserve">
+    <value>Marka | Model</value>
+  </data>
+  <data name="CloseOrder" xml:space="preserve">
+    <value>Zatvaranje naloga</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Naručilac</value>
+  </data>
+  <data name="CustomerAndVehicleData" xml:space="preserve">
+    <value>Podaci o naručiocu / vozilu</value>
+  </data>
+  <data name="CustomerDoesNotWantEstimate" xml:space="preserve">
+    <value>Kupac ne želi procjenu</value>
+  </data>
   <data name="DateFormat" xml:space="preserve">
-    <value>dd.MM.yyyy</value>
+    <value>dd.mm.yyyy</value>
+  </data>
+  <data name="IE" xml:space="preserve">
+    <value>npr.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naziv</value>
+  </data>
+  <data name="NecessaryServices" xml:space="preserve">
+    <value>Potrebni radovi</value>
   </data>
   <data name="NewOrder" xml:space="preserve">
     <value>Novi nalog</value>
   </data>
   <data name="OpenOrders" xml:space="preserve">
     <value>Otvoreni nalozi</value>
+  </data>
+  <data name="OrderedServices" xml:space="preserve">
+    <value>Tražene usluge</value>
+  </data>
+  <data name="PartsInstalled" xml:space="preserve">
+    <value>Ugrađeni dijelovi</value>
+  </data>
+  <data name="PlaceForStamp" xml:space="preserve">
+    <value>M.P.</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Cijena</value>
+  </data>
+  <data name="PrintOrder" xml:space="preserve">
+    <value>Štampanje naloga</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Osvježavanje</value>
+  </data>
+  <data name="RegNrAndOdometer" xml:space="preserve">
+    <value>Reg. br.</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Ukloniti</value>
+  </data>
+  <data name="RowNumber" xml:space="preserve">
+    <value>r.b.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Snimanje izmjena</value>
+  </data>
+  <data name="SelectedWokOrder_Advice" xml:space="preserve">
+    <value>Savjet servisa</value>
+  </data>
+  <data name="SelectedWokOrder_Approved" xml:space="preserve">
+    <value>Odobrenje</value>
+  </data>
+  <data name="SelectedWokOrder_ApprovedMax" xml:space="preserve">
+    <value>Max vrijednost</value>
+  </data>
+  <data name="SelectedWokOrder_ApprovedMaxValue" xml:space="preserve">
+    <value>Odobrena MAX vrijednost</value>
+  </data>
+  <data name="SelectedWokOrder_CompletionDate" xml:space="preserve">
+    <value>Završetak datum</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Address" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Contact" xml:space="preserve">
+    <value>Kontakt osoba</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Name" xml:space="preserve">
+    <value>Naručilac</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="SelectedWokOrder_Customer_Telephone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="SelectedWokOrder_DateModified" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="SelectedWokOrder_DateReceived" xml:space="preserve">
+    <value>Datum prijema</value>
+  </data>
+  <data name="SelectedWokOrder_Deadline" xml:space="preserve">
+    <value>Rok za završetak</value>
+  </data>
+  <data name="SelectedWokOrder_DeliveredTo" xml:space="preserve">
+    <value>Vozilo preuzeo</value>
+  </data>
+  <data name="SelectedWokOrder_Employee" xml:space="preserve">
+    <value>Korisnik</value>
+  </data>
+  <data name="SelectedWokOrder_EstimatedValue" xml:space="preserve">
+    <value>Početna procjena radova</value>
+  </data>
+  <data name="SelectedWokOrder_ForWorkShop" xml:space="preserve">
+    <value>Za servis</value>
+  </data>
+  <data name="SelectedWokOrder_Number" xml:space="preserve">
+    <value>Radni nalog br.</value>
+  </data>
+  <data name="SelectedWokOrder_RequestForEstimate" xml:space="preserve">
+    <value>Zahtjev za procjenu</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_EngineNumber" xml:space="preserve">
+    <value>Broj motora</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_Manufacturer" xml:space="preserve">
+    <value>Marka</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_RegistrationNumber" xml:space="preserve">
+    <value>Reg. br.</value>
+  </data>
+  <data name="SelectedWokOrder_Vehicle_VIN" xml:space="preserve">
+    <value>Broj šasije</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>Potpis</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Ukupno</value>
+  </data>
+  <data name="TotalParts" xml:space="preserve">
+    <value>Ukupno dijelovi</value>
+  </data>
+  <data name="TotalWork" xml:space="preserve">
+    <value>Ukupno rad</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Jedinica</value>
+  </data>
+  <data name="Units" xml:space="preserve">
+    <value>"komad", "sat"</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Korisnik</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Vrijednost</value>
+  </data>
+  <data name="WorkExecutionReport" xml:space="preserve">
+    <value>Izvještaj o izvršenju naloga</value>
+  </data>
+  <data name="WorkLimitsAndDeadlines" xml:space="preserve">
+    <value>Vrijednost i rokovi radova</value>
+  </data>
+  <data name="WorkOrderData" xml:space="preserve">
+    <value>Podaci o nalogu</value>
+  </data>
+  <data name="WorkPerformed" xml:space="preserve">
+    <value>Izvršeni radovi</value>
   </data>
 </root>

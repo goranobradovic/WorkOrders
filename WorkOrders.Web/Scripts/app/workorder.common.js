@@ -40,12 +40,12 @@
     root.ko.bindingHandlers.datepicker = {
         init: function (element, valueAccessor) {
             $(element).datepicker()
-                .on('changeDate', function(ev) {
+                .on('changeDate', function (ev) {
                     var value = valueAccessor();
                     value(ev.date.valueOf());
                 });
         },
-        update: function(element, valueAccessor) {
+        update: function (element, valueAccessor) {
             var value = valueAccessor();
             if (value()) {
                 $(element).datepicker('setValue', value());
@@ -55,6 +55,51 @@
             }
         }
     };
+
+
+    function updateLocalizations(resources) {
+        var supportedAttributes = ['text', 'title'];
+        for (var i in supportedAttributes) {
+            var attr = supportedAttributes[i];
+            $("[data-for-" + attr + "]").each(function () {
+                var field = $(this);
+                var key = field.data("for-" + attr);
+                if (resources[key]) {
+                    if (attr == "text") {
+                        field.text(resources[key]);
+                    }
+                    else {
+                        field.attr(attr, resources[key]);
+                    }
+                }
+            });
+        }
+    }
+
+    root.app.language = ko.observable(culture);
+    root.app.languages = [
+        { code: 'en', flag: 'gb', name: 'English' },
+        { code: 'de', flag: 'de', name: 'Deutsch' },
+        { code: 'el', flag: 'gr', name: 'ελληνικά' },
+        { code: 'es', flag: 'es', name: 'español' },
+        { code: 'fi', flag: 'fi', name: 'suomi' },
+        { code: 'fr', flag: 'fr', name: 'français' },
+        { code: 'ga', flag: 'ga', name: 'Gaeilge' },
+        { code: 'hr', flag: 'hr', name: 'Hrvatski' },
+        { code: 'it', flag: 'it', name: 'italiano' },
+        { code: 'ja', flag: 'jp', name: '日本人' },
+        { code: 'mk', flag: 'mk', name: 'македонски' },
+        { code: 'ru', flag: 'ru', name: 'русский' },
+        { code: 'sl', flag: 'sl', name: 'Slovenski' },
+        { code: 'sr', flag: 'rs', name: 'Srpski' }];
+    root.app.resources = ko.observable({});
+    root.app.resources.subscribe(updateLocalizations);
+    root.app.language.subscribe(function (language) {
+        $.getJSON((urlroot || '/') + 'Scripts/Resources/' + language)
+            .done(function (data) {
+                root.app.resources(data);
+            });
+    });
 
 }(window));
 

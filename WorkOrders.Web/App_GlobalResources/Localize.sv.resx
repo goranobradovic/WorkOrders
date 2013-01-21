@@ -112,189 +112,189 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Lägg</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Amount</value>
+    <value>Belopp</value>
   </data>
   <data name="AppTitle" xml:space="preserve">
-    <value>Work orders</value>
+    <value>Arbetsorder</value>
   </data>
   <data name="BrandAndModel" xml:space="preserve">
-    <value>Brand | Model</value>
+    <value>Märke | Modell</value>
   </data>
   <data name="CloseOrder" xml:space="preserve">
-    <value>Close order</value>
+    <value>Stäng ordning</value>
   </data>
   <data name="Customer" xml:space="preserve">
-    <value>Customer</value>
+    <value>Kund</value>
   </data>
   <data name="CustomerAndVehicleData" xml:space="preserve">
-    <value>Customer / Vehicle data</value>
+    <value>Kund / Fordonsdata</value>
   </data>
   <data name="CustomerDoesNotWantEstimate" xml:space="preserve">
-    <value>Customer does not want estimation</value>
+    <value>Kunden vill inte uppskattning</value>
   </data>
   <data name="DateFormat" xml:space="preserve">
-    <value>mm/dd/yyyy</value>
+    <value>mm / dd / &amp;#229;&amp;#229;&amp;#229;&amp;#229;</value>
   </data>
   <data name="IE" xml:space="preserve">
-    <value>i.e.</value>
+    <value>dvs</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Namn</value>
   </data>
   <data name="NecessaryServices" xml:space="preserve">
-    <value>Necessary services</value>
+    <value>Nödvändiga tjänster</value>
   </data>
   <data name="NewOrder" xml:space="preserve">
-    <value>New order</value>
+    <value>Ny order</value>
   </data>
   <data name="OpenOrders" xml:space="preserve">
-    <value>Open orders</value>
+    <value>Öppna ordrar</value>
   </data>
   <data name="OrderedServices" xml:space="preserve">
-    <value>Ordered services</value>
+    <value>Beställda tjänster</value>
   </data>
   <data name="PartsInstalled" xml:space="preserve">
-    <value>Installed parts</value>
+    <value>Installerade delar</value>
   </data>
   <data name="PlaceForStamp" xml:space="preserve">
-    <value>(stamp)</value>
+    <value>(Stämpel)</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Pris</value>
   </data>
   <data name="PrintOrder" xml:space="preserve">
-    <value>Print order</value>
+    <value>Utskriftsmarkering</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Refresh</value>
   </data>
   <data name="RegNrAndOdometer" xml:space="preserve">
-    <value>Reg. Nr | Odometer</value>
+    <value>Reg.</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Remove</value>
+    <value>Ta bort</value>
   </data>
   <data name="RowNumber" xml:space="preserve">
-    <value>r.n.</value>
+    <value>R.N.</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Spara</value>
   </data>
   <data name="SelectedWokOrder_Advice" xml:space="preserve">
-    <value>Workshop advice</value>
+    <value>Verkstad r&amp;#229;d</value>
   </data>
   <data name="SelectedWokOrder_Approved" xml:space="preserve">
-    <value>Approved</value>
+    <value>Godkänd</value>
   </data>
   <data name="SelectedWokOrder_ApprovedMax" xml:space="preserve">
-    <value>Approved maximum</value>
+    <value>Godkänd maximal</value>
   </data>
   <data name="SelectedWokOrder_ApprovedMaxValue" xml:space="preserve">
-    <value>Approved max. value</value>
+    <value>Godkänd max.</value>
   </data>
   <data name="SelectedWokOrder_CompletionDate" xml:space="preserve">
-    <value>Completion date</value>
+    <value>Slutdatum</value>
   </data>
   <data name="SelectedWokOrder_Customer_Address" xml:space="preserve">
-    <value>Address</value>
+    <value>Adress</value>
   </data>
   <data name="SelectedWokOrder_Customer_Contact" xml:space="preserve">
-    <value>Contact person</value>
+    <value>Kontaktperson</value>
   </data>
   <data name="SelectedWokOrder_Customer_Name" xml:space="preserve">
-    <value>Customer</value>
+    <value>Kund</value>
   </data>
   <data name="SelectedWokOrder_Customer_Phone" xml:space="preserve">
-    <value>Phone</value>
+    <value>Telefon</value>
   </data>
   <data name="SelectedWokOrder_Customer_Telephone" xml:space="preserve">
-    <value>Telephone</value>
+    <value>Telefon</value>
   </data>
   <data name="SelectedWokOrder_DateModified" xml:space="preserve">
-    <value>Date</value>
+    <value>Datum</value>
   </data>
   <data name="SelectedWokOrder_DateReceived" xml:space="preserve">
-    <value>Reception date</value>
+    <value>Mottagningsdatum</value>
   </data>
   <data name="SelectedWokOrder_Deadline" xml:space="preserve">
-    <value>Work deadline</value>
+    <value>Arbete deadline</value>
   </data>
   <data name="SelectedWokOrder_DeliveredTo" xml:space="preserve">
-    <value>Delivered to</value>
+    <value>Levererad till</value>
   </data>
   <data name="SelectedWokOrder_Employee" xml:space="preserve">
-    <value>User</value>
+    <value>Användare</value>
   </data>
   <data name="SelectedWokOrder_EstimatedValue" xml:space="preserve">
-    <value>Estimated value</value>
+    <value>Beräknat värde</value>
   </data>
   <data name="SelectedWokOrder_ForWorkShop" xml:space="preserve">
-    <value>For workshop</value>
+    <value>För verkstad</value>
   </data>
   <data name="SelectedWokOrder_Number" xml:space="preserve">
-    <value>Work order Nr</value>
+    <value>Arbetsorder Nr</value>
   </data>
   <data name="SelectedWokOrder_RequestForEstimate" xml:space="preserve">
-    <value>Request for estimate</value>
+    <value>Begäran om uppskattning</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_EngineNumber" xml:space="preserve">
-    <value>Engine number</value>
+    <value>Motornummer</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_Manufacturer" xml:space="preserve">
     <value>Brand</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_Model" xml:space="preserve">
-    <value>Model</value>
+    <value>Modell</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_RegistrationNumber" xml:space="preserve">
-    <value>Reg. Nr.</value>
+    <value>Reg.</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_VIN" xml:space="preserve">
     <value>VIN</value>
   </data>
   <data name="Signature" xml:space="preserve">
-    <value>Signature</value>
+    <value>Namnteckning</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Total</value>
+    <value>Totalt</value>
   </data>
   <data name="TotalParts" xml:space="preserve">
-    <value>Total parts</value>
+    <value>Totalt delar</value>
   </data>
   <data name="TotalWork" xml:space="preserve">
-    <value>Total work</value>
+    <value>Totalt arbete</value>
   </data>
   <data name="Unit" xml:space="preserve">
-    <value>Unit</value>
+    <value>Enhet</value>
   </data>
   <data name="Units" xml:space="preserve">
-    <value>"piece", "hour"</value>
+    <value>&amp;quot;Piece&amp;quot;, &amp;quot;timme&amp;quot;</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>Användare</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>Value</value>
+    <value>Värde</value>
   </data>
   <data name="WorkExecutionReport" xml:space="preserve">
-    <value>Work execution report</value>
+    <value>Arbete verkställanderapport</value>
   </data>
   <data name="WorkLimitsAndDeadlines" xml:space="preserve">
-    <value>Work limits and deadlines</value>
+    <value>Arbete gränser och tidsfrister</value>
   </data>
   <data name="WorkOrderData" xml:space="preserve">
-    <value>Work order info</value>
+    <value>Arbetsorder info</value>
   </data>
   <data name="WorkPerformed" xml:space="preserve">
-    <value>Executed work</value>
+    <value>Utfört arbete</value>
   </data>
 </root>

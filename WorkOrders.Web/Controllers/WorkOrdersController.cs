@@ -45,15 +45,6 @@ namespace WorkOrders.Web.Controllers
             _contextProvider.Context.SaveChanges();
             return wo;
         }
-
-        //public IQueryable<WorkOrder> GetWorkOrders()
-        //{
-        //    return db.WorkOrders
-        //             .Include(wo => wo.Client)
-        //             .Include(wo => wo.Vehicle)
-        //             .OrderByDescending(wo => wo.DateReceived)
-        //             .Where(wo => wo.CompletionDate == null);
-        //}
     }
 
 }

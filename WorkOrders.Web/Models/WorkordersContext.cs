@@ -51,7 +51,7 @@ namespace WorkOrders.Domain.Models
 
     public DbSet<WorkOrder> WorkOrders { get; set; }
 
-    public DbSet<Client> Clients { get; set; }
+    public DbSet<Customer> Clients { get; set; }
 
     public DbSet<Vehicle> Vehicles { get; set; }
 
@@ -135,9 +135,9 @@ namespace WorkOrders.Domain.Models
               .WithMany()
               .HasForeignKey(wo => wo.VehicleId);
 
-          this.HasOptional(wo => wo.Client)
+          this.HasOptional(wo => wo.Customer)
               .WithMany()
-              .HasForeignKey(wo => wo.ClientId);
+              .HasForeignKey(wo => wo.CustomerId);
 
           this.HasMany(wo => wo.WorkItems)
               .WithRequired(wi => wi.WorkOrder)
@@ -158,7 +158,7 @@ namespace WorkOrders.Domain.Models
         }
       }
 
-      public class ClientConfiguration : BaseIdConfiguration<Client>
+      public class ClientConfiguration : BaseIdConfiguration<Customer>
       {
 
       }

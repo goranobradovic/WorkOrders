@@ -1,6 +1,7 @@
 ﻿@model ICollection<WorkOrders.Domain.Models.WorkOrder>
 
 
+<h4 @Html.DataForAttr("OpenOrders") data-bind="visible:workOrders().length">@Localize.OpenOrders</h4>
 <ul data-bind="foreach: workOrders">
-    <li data-bind="text: Number, click: $parent.selectWorkOrder, css: { active: $data == $parent.selectedWorkOrder() }"></li>
+    <li data-bind="text: Number, click: $parent.selectWorkOrder, css: { active: $data == $parent.SelectedWorkOrder() }"></li>
 </ul>

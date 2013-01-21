@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using WorkOrders.Domain.Models.Common;
@@ -16,7 +17,7 @@ namespace WorkOrders.Domain.Models
     {
       this.DateModified = DateTime.Now;
       //this.Vehicle = new Vehicle();
-      //this.Client = new Client();
+      //this.Customer = new Customer();
       this.WorkItems = new Collection<WorkItem>();
     }
 
@@ -30,6 +31,7 @@ namespace WorkOrders.Domain.Models
     /// Gets or sets the advice.
     /// </summary>
     /// <value>The advice.</value>
+    [UIHint("MultilineText")]
     public string Advice { get; set; }
 
     /// <summary>
@@ -39,12 +41,18 @@ namespace WorkOrders.Domain.Models
     public bool Approved { get; set; }
 
     /// <summary>
+    /// Gets or sets the approved.
+    /// </summary>
+    /// <value>The approved.</value>
+    public bool ApprovedMax { get; set; }
+
+    /// <summary>
     /// Gets or sets the approved max value.
     /// </summary>
     /// <value>The approved max value.</value>
     public decimal? ApprovedMaxValue { get; set; }
 
-    #region client
+    #region customer
 
     /// <summary>
     /// Gets or sets the client.
@@ -52,10 +60,10 @@ namespace WorkOrders.Domain.Models
     /// <value>
     /// The client.
     /// </value>
-    //[ForeignKey("ClientId")]
-    public virtual Client Client { get; set; }
+    //[ForeignKey("CustomerId")]
+    public virtual Customer Customer { get; set; }
 
-    public long? ClientId { get; set; }
+    public long? CustomerId { get; set; }
 
     #endregion client
 
@@ -113,7 +121,7 @@ namespace WorkOrders.Domain.Models
     /// <value>
     /// For company.
     /// </value>
-    public string ForCompany { get; set; }
+    public string ForWorkShop { get; set; }
 
     /// <summary>
     /// Gets or sets the number.

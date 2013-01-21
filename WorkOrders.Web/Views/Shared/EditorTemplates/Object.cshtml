@@ -1,0 +1,12 @@
+﻿@foreach (var property in ViewData.ModelMetadata.Properties.Where(prop => prop.ShowForEdit || prop.ShowForDisplay))
+{
+    if (property.IsReadOnly)
+    {
+        @Html.Display(property.PropertyName)
+        @Html.Hidden(property.PropertyName, property.Model, new { data_bind = string.Format("value:{0}", property.PropertyName) })
+    }
+    else
+    {
+        @Html.Editor(property.PropertyName)
+    }
+}

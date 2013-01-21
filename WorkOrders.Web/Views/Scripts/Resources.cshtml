@@ -1,0 +1,12 @@
+﻿@model Dictionary<string, string>
+@{
+    Layout = string.Empty;
+    var delimiter = "," + Environment.NewLine;
+}
+
+<script type="text/javascript">
+var Resources = {
+@Html.Raw(String.Join(delimiter, Model.Select(item => string.Format("\t'{0}': '{1}'", item.Key, item.Value))))
+}
+</script>
+

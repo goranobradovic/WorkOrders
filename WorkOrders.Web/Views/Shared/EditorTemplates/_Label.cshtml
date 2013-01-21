@@ -1,0 +1,4 @@
+﻿<label class="@(ViewBag.DontPrepend == true ? "" : "input-prepend")">
+    <span class="add-on" @Html.DataForAttr()>@Html.Localize()</span>
+    @RenderBody()
+</label>

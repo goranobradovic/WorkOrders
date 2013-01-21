@@ -11,7 +11,7 @@ namespace WorkOrders.Domain.Models
   public enum WorkItemType
   {
     Ordered = 1,
-    Needed = 2,
+    Necessary = 2,
     Performed = 3,
     PartInstalled = 4
   }

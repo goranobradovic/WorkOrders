@@ -11,6 +11,7 @@
 </head>
 <body>
     <div id="userSettings" class="not-printable">
+        @Html.Partial("_LanguageChooser")
         @Html.Partial("_UserSettings")
     </div>
 
@@ -21,15 +22,16 @@
     <footer class="not-printable">
         <nav>
             <ul id="menu">
-                <li>@Html.ActionLink("Radni nalozi", "Index", "Home", new { area = "" }, null)</li>
+                @*<li>@Html.ActionLink("Radni nalozi", "Index", "Home", new { area = "" }, null)</li>*@
                 @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>*@
             </ul>
         </nav> 
-        <p>Learn more about <a href="http://go.microsoft.com/fwlink/?LinkId=273732">Single Page Applications</a></p>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+        @*<p>Learn more about <a href="http://go.microsoft.com/fwlink/?LinkId=273732">Single Page Applications</a></p>*@
+        <p>&copy; @DateTime.Now.Year - <a href="http://twitter.com/goranobradovic">@@goranobradovic</a></p>
     </footer>
     <script type="text/javascript">
         var urlroot = '@Url.Action("")';
+        var culture = @UICulture;
     </script>
     @Scripts.Render("~/bundles/libs")
     @*@Scripts.Render("~/bundles/jquery")

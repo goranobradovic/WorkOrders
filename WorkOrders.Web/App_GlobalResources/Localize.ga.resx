@@ -112,189 +112,189 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Cuir</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Amount</value>
+    <value>Méid</value>
   </data>
   <data name="AppTitle" xml:space="preserve">
-    <value>Work orders</value>
+    <value>Orduithe Oibre</value>
   </data>
   <data name="BrandAndModel" xml:space="preserve">
-    <value>Brand | Model</value>
+    <value>Brand | Samhail</value>
   </data>
   <data name="CloseOrder" xml:space="preserve">
-    <value>Close order</value>
+    <value>Ordú Close</value>
   </data>
   <data name="Customer" xml:space="preserve">
-    <value>Customer</value>
+    <value>Chustaiméirí</value>
   </data>
   <data name="CustomerAndVehicleData" xml:space="preserve">
-    <value>Customer / Vehicle data</value>
+    <value>Chustaiméirí / Feithiclí sonraí</value>
   </data>
   <data name="CustomerDoesNotWantEstimate" xml:space="preserve">
-    <value>Customer does not want estimation</value>
+    <value>Ní Custaiméirí ag iarraidh meastachán</value>
   </data>
   <data name="DateFormat" xml:space="preserve">
-    <value>mm/dd/yyyy</value>
+    <value>mm / ll / bbbb</value>
   </data>
   <data name="IE" xml:space="preserve">
     <value>i.e.</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Ainm</value>
   </data>
   <data name="NecessaryServices" xml:space="preserve">
-    <value>Necessary services</value>
+    <value>Seirbhísí riachtanacha</value>
   </data>
   <data name="NewOrder" xml:space="preserve">
-    <value>New order</value>
+    <value>Ordú nua</value>
   </data>
   <data name="OpenOrders" xml:space="preserve">
-    <value>Open orders</value>
+    <value>Orduithe Oscailte</value>
   </data>
   <data name="OrderedServices" xml:space="preserve">
-    <value>Ordered services</value>
+    <value>Seirbhísí a ordaíodh a</value>
   </data>
   <data name="PartsInstalled" xml:space="preserve">
-    <value>Installed parts</value>
+    <value>Páirteanna Suiteáilte</value>
   </data>
   <data name="PlaceForStamp" xml:space="preserve">
-    <value>(stamp)</value>
+    <value>(Stampa)</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Praghas</value>
   </data>
   <data name="PrintOrder" xml:space="preserve">
-    <value>Print order</value>
+    <value>Ordú Priontáil</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Athnuaigh</value>
   </data>
   <data name="RegNrAndOdometer" xml:space="preserve">
-    <value>Reg. Nr | Odometer</value>
+    <value>Rial.</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Remove</value>
+    <value>Bain</value>
   </data>
   <data name="RowNumber" xml:space="preserve">
     <value>r.n.</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Sábháil</value>
   </data>
   <data name="SelectedWokOrder_Advice" xml:space="preserve">
-    <value>Workshop advice</value>
+    <value>Comhairle Ceardlann</value>
   </data>
   <data name="SelectedWokOrder_Approved" xml:space="preserve">
-    <value>Approved</value>
+    <value>Ceadaithe</value>
   </data>
   <data name="SelectedWokOrder_ApprovedMax" xml:space="preserve">
-    <value>Approved maximum</value>
+    <value>Uasmhéid Ceadaithe</value>
   </data>
   <data name="SelectedWokOrder_ApprovedMaxValue" xml:space="preserve">
-    <value>Approved max. value</value>
+    <value>Ceadaithe max.</value>
   </data>
   <data name="SelectedWokOrder_CompletionDate" xml:space="preserve">
-    <value>Completion date</value>
+    <value>Dáta críochnaithe</value>
   </data>
   <data name="SelectedWokOrder_Customer_Address" xml:space="preserve">
-    <value>Address</value>
+    <value>Seoladh</value>
   </data>
   <data name="SelectedWokOrder_Customer_Contact" xml:space="preserve">
-    <value>Contact person</value>
+    <value>Déan teagmháil le duine</value>
   </data>
   <data name="SelectedWokOrder_Customer_Name" xml:space="preserve">
-    <value>Customer</value>
+    <value>Chustaiméirí</value>
   </data>
   <data name="SelectedWokOrder_Customer_Phone" xml:space="preserve">
-    <value>Phone</value>
+    <value>Fón</value>
   </data>
   <data name="SelectedWokOrder_Customer_Telephone" xml:space="preserve">
-    <value>Telephone</value>
+    <value>Teileafón</value>
   </data>
   <data name="SelectedWokOrder_DateModified" xml:space="preserve">
-    <value>Date</value>
+    <value>Dáta</value>
   </data>
   <data name="SelectedWokOrder_DateReceived" xml:space="preserve">
-    <value>Reception date</value>
+    <value>Dáta Fáiltithe</value>
   </data>
   <data name="SelectedWokOrder_Deadline" xml:space="preserve">
-    <value>Work deadline</value>
+    <value>Obair spriocdháta</value>
   </data>
   <data name="SelectedWokOrder_DeliveredTo" xml:space="preserve">
-    <value>Delivered to</value>
+    <value>Arna Seachadadh chuig an</value>
   </data>
   <data name="SelectedWokOrder_Employee" xml:space="preserve">
-    <value>User</value>
+    <value>Úsáideoir</value>
   </data>
   <data name="SelectedWokOrder_EstimatedValue" xml:space="preserve">
-    <value>Estimated value</value>
+    <value>Luach measta</value>
   </data>
   <data name="SelectedWokOrder_ForWorkShop" xml:space="preserve">
-    <value>For workshop</value>
+    <value>Chun ceardlann</value>
   </data>
   <data name="SelectedWokOrder_Number" xml:space="preserve">
-    <value>Work order Nr</value>
+    <value>Obair Nr ordú</value>
   </data>
   <data name="SelectedWokOrder_RequestForEstimate" xml:space="preserve">
-    <value>Request for estimate</value>
+    <value>Iarratas ar meastachán</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_EngineNumber" xml:space="preserve">
-    <value>Engine number</value>
+    <value>Uimhir Inneall</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_Manufacturer" xml:space="preserve">
     <value>Brand</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_Model" xml:space="preserve">
-    <value>Model</value>
+    <value>Samhail</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_RegistrationNumber" xml:space="preserve">
-    <value>Reg. Nr.</value>
+    <value>Rial.</value>
   </data>
   <data name="SelectedWokOrder_Vehicle_VIN" xml:space="preserve">
     <value>VIN</value>
   </data>
   <data name="Signature" xml:space="preserve">
-    <value>Signature</value>
+    <value>Síniú</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Total</value>
+    <value>Iomlán na</value>
   </data>
   <data name="TotalParts" xml:space="preserve">
-    <value>Total parts</value>
+    <value>Páirteanna Iomlán</value>
   </data>
   <data name="TotalWork" xml:space="preserve">
-    <value>Total work</value>
+    <value>Obair iomlán</value>
   </data>
   <data name="Unit" xml:space="preserve">
-    <value>Unit</value>
+    <value>Aonad</value>
   </data>
   <data name="Units" xml:space="preserve">
-    <value>"piece", "hour"</value>
+    <value>&amp;quot;Píosa&amp;quot;, &amp;quot;uair an chloig&amp;quot;</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>Úsáideoir</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>Value</value>
+    <value>Luach</value>
   </data>
   <data name="WorkExecutionReport" xml:space="preserve">
-    <value>Work execution report</value>
+    <value>Obair tuarascáil a fhorghníomhú</value>
   </data>
   <data name="WorkLimitsAndDeadlines" xml:space="preserve">
-    <value>Work limits and deadlines</value>
+    <value>Teorainneacha Obair agus spriocdhátaí</value>
   </data>
   <data name="WorkOrderData" xml:space="preserve">
-    <value>Work order info</value>
+    <value>Info chun obair</value>
   </data>
   <data name="WorkPerformed" xml:space="preserve">
-    <value>Executed work</value>
+    <value>Obair báis</value>
   </data>
 </root>

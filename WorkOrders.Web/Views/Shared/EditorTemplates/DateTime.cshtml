@@ -1,0 +1,15 @@
+﻿@model DateTime?
+<label class="@(ViewBag.DontPrepend == true ? "" : "input-prepend")" data-date-format="@Html.DateFormat()" data-bind="attr: { 'data-date': @ViewData.ModelMetadata.PropertyName || new Date()}">
+    <span class="add-on" @Html.DataForAttr()>@Html.Localize()</span>
+    @Html.TextBox(string.Empty, ViewData.TemplateInfo.FormattedModelValue,
+                  new
+                      {
+                          @class = "datepicker",
+                          data_date_format = Html.DateFormat(),
+                          data_bind = string.Format("datepicker:{0}", ViewData.ModelMetadata.PropertyName)
+                      })
+    @if (ViewBag.ShowDatePickerIcon == true)
+    {
+        <span class="add-on"><i class="icon-th"></i></span>
+    }
+</label>

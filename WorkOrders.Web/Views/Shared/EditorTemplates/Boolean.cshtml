@@ -1,0 +1,51 @@
+﻿@{
+    bool? Value = null;
+    if (ViewData.Model != null)
+    {
+        Value = Convert.ToBoolean(ViewData.Model,
+                                    System.Globalization.CultureInfo.InvariantCulture);
+    }
+    List<SelectListItem> TriStateValues =
+             new List<SelectListItem>() {
+                new SelectListItem { Text = "",
+                                     Value = null,
+                                     Selected = !Value.HasValue },
+                new SelectListItem { Text = @Html.Localize(Boolean.TrueString),
+                                     Value = "true",
+                                     Selected = Value.HasValue && Value.Value },
+                new SelectListItem { Text = @Html.Localize(Boolean.FalseString),
+                                     Value = "false",
+                                     Selected = Value.HasValue && !Value.Value },
+            };
+
+
+    var options = Json.Encode(TriStateValues.Select(o => new { Text = o.Text, Value = o.Value }).ToArray());
+
+    var htmlAttributes = System.Web.Mvc.HtmlHelper.AnonymousObjectToHtmlAttributes(
+        ViewData.ContainsKey("htmlAttributes") ?
+            ViewData["htmlAttributes"] : new { });
+    if (ViewData.ModelMetadata.IsNullableValueType)
+    {
+        htmlAttributes["class"] = "list-box tri-state " + htmlAttributes["class"] ?? "";
+        htmlAttributes["data-bind"] = string.Format("options:{0}, optionsText:'Text', optionsValue:'Value', value:{1}", options, ViewData.ModelMetadata.PropertyName);
+    }
+    else
+    {
+        htmlAttributes["class"] = "checkbox " + htmlAttributes["class"] ?? "";
+        htmlAttributes["data-bind"] = string.Format("checked:{0}", ViewData.ModelMetadata.PropertyName);
+    }
+}
+@if (ViewData.ModelMetadata.IsNullableValueType)
+{ 
+    <label class="dropdown">
+        <span @Html.DataForAttr()>@Html.Localize()</span>
+        @Html.DropDownList(string.Empty, TriStateValues, htmlAttributes)
+    </label>
+}
+else
+{
+    <label class="checkbox">
+        @Html.CheckBox("", Value ?? false, htmlAttributes)
+        <span @Html.DataForAttr()>@Html.Localize()</span>
+    </label>
+}

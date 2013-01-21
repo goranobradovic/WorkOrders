@@ -1,0 +1,35 @@
+﻿@model WorkOrders.Domain.Models.WorkItem
+
+<tr class="not-printable">
+    <td data-bind="text: $index() + 1"></td>
+    <td>
+        <input type="text" class="input-small" data-bind="value: Name" />
+    </td>
+    <td>
+        <input type="number" class="input-micro" data-bind="value: Amount" />
+    </td>
+    <td>
+        <input type="text" class="input-mini" data-bind="value: Unit"
+            data-provide="typeahead" data-source='[@Localize.Units]' />
+    </td>
+    <td>
+        <div class="input-append">
+            <input type="text" data-bind="value: FormattedValue" class="input-micro" /><span class="add-on">KM</span>
+        </div>
+    </td>
+</tr>
+<tr class="printable-only">
+    <td data-bind="text: $index() + 1"></td>
+    <td>
+        <span data-bind="text: Name" />
+    </td>
+    <td>
+        <span data-bind="text: Amount" />
+    </td>
+    <td>
+        <span data-bind="text: Unit" />
+    </td>
+    <td>
+        <span class="pull-right" data-bind="text: FormattedValue" />
+    </td>
+</tr>

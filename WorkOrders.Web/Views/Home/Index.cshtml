@@ -1,22 +1,21 @@
-﻿@using System.Collections.ObjectModel
-@using WorkOrders.Domain.Models
-@using WorkOrders.Web.Models
+﻿@using WorkOrders.Web.Models
 @model WorkOrders.Web.Models.LoginModel
 @{
     ViewBag.Title = Localize.AppTitle;
 }
 
 <header class="not-printable">
-    <h1>@ViewBag.Title</h1>
+    <h1 @Html.DataForAttr("AppTitle")>@ViewBag.Title</h1>
 </header>
 <div id="main-content">
-    @if (User.Identity.IsAuthenticated /* && User.IsInRole(WorkOrders.Web.Infrastructure.Constants.RoleNames.Employee)*/)
+    @if (User.Identity.IsAuthenticated || true/* && User.IsInRole(WorkOrders.Web.Infrastructure.Constants.RoleNames.Employee)*/)
     {
         @section scripts
         {
             @Scripts.Render("~/bundles/workorder")
         }
         @Html.Partial("WorkOrdersApp", new WorkOrdersViewModel())
+
     }
     else
     {
@@ -38,7 +37,6 @@
         </div>
     }
 </div>
-<div class="pull-left not-printable" id="logmessages"></div>
 @if (@User.Identity.IsAuthenticated)
 {
 }
