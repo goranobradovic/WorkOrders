@@ -6,7 +6,8 @@
         ko = root.ko,
         logger = app.logger,
         models = app.models,
-        entityModel = breeze.entityModel;
+        entityModel = breeze.entityModel,
+        urlroot = root.urlroot;
 
     // define Breeze namespace
     function initManager() {

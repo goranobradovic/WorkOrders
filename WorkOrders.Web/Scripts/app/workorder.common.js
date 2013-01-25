@@ -90,7 +90,7 @@
         { code: 'ja', flag: 'jp', name: '日本人' },
         { code: 'mk', flag: 'mk', name: 'македонски' },
         { code: 'ru', flag: 'ru', name: 'русский' },
-        { code: 'sl', flag: 'sl', name: 'Slovenski' },
+        { code: 'sl', flag: 'si', name: 'Slovenski' },
         { code: 'sr', flag: 'rs', name: 'Srpski' }];
     root.app.resources = ko.observable({});
     root.app.resources.subscribe(updateLocalizations);
@@ -113,4 +113,19 @@
     ac.Manufacturers = function (query, process) {
         process(data.Manufacturers);
     };
+}(window));
+
+(function (root) {
+    var ko = root.ko,
+        breeze = root.breeze,
+        serviceUrl = (root.urlroot || '/') + 'api/Users';
+
+    var manager = new breeze.entityModel.EntityManager(serviceUrl);
+    manager.metadataStore.fetchMetadata(serviceUrl);
+
+    var userAdmin = {
+        manager: manager
+    };
+
+    root.userAdmin = userAdmin;
 }(window));

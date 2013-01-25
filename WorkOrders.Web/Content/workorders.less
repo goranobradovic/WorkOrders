@@ -2,57 +2,46 @@
 @import "less/responsive.less";
 @import "less/datepicker.less";
 
-body
-{
+body {
     font-variant: small-caps;
 }
 
-legend
-{
+legend {
     padding-top: 10px;
     line-height: 25px;
 }
 
-.input-append .inline, .input-prepend .inline
-{
+.input-append .inline, .input-prepend .inline {
     .border-radius(0);
 }
 
-input.input-micro
-{
+input.input-micro {
     width: 40px;
 }
 
-.table
-{
-	.border-radius(0);
+.table {
     /*border:1px solid @dropdownBorder;*/
-    td
-    {
+    td {
         padding: 5px;
     }
 }
 
 
-.unstyledList
-{
+.unstyledList {
     list-style: none;
     text-align: left;
     margin: 0;
 }
 
-.item-list
-{
+.item-list {
     background-color: @dropdownBackground;
     .makeColumn(3);
     text-align: left;
 
-    ul
-    {
+    ul {
         .unstyledList;
 
-        li
-        {
+        li {
             background-color: @dropdownBackground;
             color: @dropdownLinkColor;
             cursor: pointer;
@@ -61,34 +50,29 @@ input.input-micro
             position: relative;
         }
 
-            li.active
-            {
+            li.active {
                 background-color: @dropdownLinkBackgroundActive;
                 color: @dropdownLinkColorActive;
                 font-weight: bold;
                 margin-right: 0;
             }
 
-            li:hover
-            {
+            li:hover {
                 background-color: @dropdownLinkBackgroundHover;
                 color: @dropdownLinkColorHover;
             }
     }
 }
 
-input[type=radio], input[type=checkbox]
-{
-	min-height:12px;
+input[type=radio], input[type=checkbox] {
+    min-height: 12px;
 }
 
-.input-half
-{
+.input-half {
     width: 96px;
 }
 
-.current-item
-{
+.current-item {
     border: 3px solid @dropdownLinkBackgroundActive;
     .makeColumn(8);
     .container;
@@ -100,160 +84,129 @@ input[type=radio], input[type=checkbox]
         border-bottom: 1px solid @dropdownLinkBackgroundActive;
         margin: 5px 10px;
     }*/
-    .input-prepend .add-on
-    {
+    .input-prepend .add-on {
         width: @gridColumnWidth * 2;
     }
 
-    fieldset, section, header
-    {
+    fieldset, section, header {
         .container-fluid;
         .makeRow;
         margin-left: 0;
         padding: 0 10px;
 
-		legend{
-			margin-bottom:10px;
-		}
+        legend {
+            margin-bottom: 10px;
+        }
 
-        section, fieldset
-        {
+        section, fieldset {
             .makeColumn(5.5);
             margin-left: 5px;
             padding-left: 0;
 
-			legend
-			{
-				font-size: 18px;
-				line-height:18px;
-			}
+            legend {
+                font-size: 18px;
+                line-height: 18px;
+            }
 
-            label.input-prepend, label.input-append
-            {
-                input
-                {
+            label.input-prepend, label.input-append {
+                input {
                     width: @gridColumnWidth * 4.5;
                 }
 
-                    input.input-half
-                    {
+                    input.input-half {
                         width: @gridColumnWidth * 2.15;
                     }
             }
         }
     }
 
-    .order-info
-    {
-        fieldset > section
-        {
+    .order-info {
+        fieldset > section {
             width: @gridColumnWidth * 6 + 20px;
             margin-left: 0;
         }
     }
 
-    .work-limits
-    {
-        section
-        {
+    .work-limits {
+        section {
             width: @gridColumnWidth * 3 + 20px;
         }
     }
 
-    .work-footer
-    {
+    .work-footer {
         margin: 10px 0;
         padding: 0 4px;
 
-        section
-        {
+        section {
             .makeColumn(3.5);
         }
 
-        .input-prepend, .input-append
-        {
-            .add-on
-            {
+        .input-prepend, .input-append {
+            .add-on {
                 width: @gridColumnWidth * 1.5;
             }
 
-            input
-            {
+            input {
                 width: @gridColumnWidth * 2.5;
             }
         }
     }
 
-    .logo
-    {
+    .logo {
         height: 30px;
         margin: 3px;
     }
 }
 
-div.logo, div.logo img
-{
+div.logo, div.logo img {
     height: 100px;
 }
 
-input::-webkit-input-placeholder
-{
+input::-webkit-input-placeholder {
     color: @inputBorder;
 }
 
-:-moz-placeholder
-{
+:-moz-placeholder {
     color: @inputBorder;
 }
 
-::-moz-placeholder
-{
+::-moz-placeholder {
     color: @inputBorder;
 }
 
-:-ms-input-placeholder
-{
+:-ms-input-placeholder {
     color: @inputBorder;
 }
 
-@media screen
-{
-    .printable-only
-    {
+@media screen {
+    .printable-only {
         display: none !important;
     }
 }
 
-@media print
-{
-    body
-    {
+@media print {
+    body {
         font-family: serif, Calibri;
     }
 
-    .not-printable
-    {
+    .not-printable {
         display: none;
     }
 
-    .printable-only
-    {
+    .printable-only {
         display: normal;
     }
 
-    .current-item
-    {
+    .current-item {
         border: none;
         padding: 0;
     }
 
-    input::-webkit-calendar-picker-indicator
-    {
+    input::-webkit-calendar-picker-indicator {
         display: none;
     }
 
-    input::-webkit-scrollbar
-    {
+    input::-webkit-scrollbar {
         display: none;
     }
 
@@ -262,38 +215,32 @@ input::-webkit-input-placeholder
     input:-moz-placeholder,
     input[type="date"]:-moz-placeholder,
     input[type="date"]:-ms-input-placeholder,
-    input[type="date"]::-webkit-input-placeholder
-    {
+    input[type="date"]::-webkit-input-placeholder {
         visibility: hidden !important;
     }
 
-    input::-webkit-input-placeholder
-    {
+    input::-webkit-input-placeholder {
         display: none;
         visibility: hidden !important;
     }
 
-    :-moz-placeholder
-    {
+    :-moz-placeholder {
         display: none;
         visibility: hidden !important;
     }
 
-    ::-moz-placeholder
-    {
+    ::-moz-placeholder {
         display: none;
         visibility: hidden !important;
     }
 
-    :-ms-input-placeholder
-    {
+    :-ms-input-placeholder {
         display: none;
         visibility: hidden !important;
     }
 
     input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button
-    {
+    input::-webkit-inner-spin-button {
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
@@ -301,76 +248,71 @@ input::-webkit-input-placeholder
 
     @gridColumnWidth: 25mm;
 
-    input.printable-only
-    {
+    input.printable-only {
         .border-radius(0);
         border-width: 0;
         border-bottom: 1px solid silver;
         width: @gridColumnWidth * 3;
     }
 
-    .input-prepend, .input-append
-    {
+    .input-prepend, .input-append {
         width: @gridColumnWidth * 4;
 
-        .add-on, input
-        {
+        .add-on, input {
             .border-radius(0);
             border-width: 0;
         }
 
-        .add-on
-        {
+        .add-on {
             text-align: right;
             width: @gridColumnWidth;
             margin-right: 1mm;
         }
 
-        input
-        {
+        input {
             border-bottom: 1px solid silver;
             width: @gridColumnWidth * 3;
         }
 
-        .input-half
-        {
+        .input-half {
             width: @gridColumnWidth * 1.5;
         }
 
-        .input-block-level
-        {
+        .input-block-level {
             width: @gridColumnWidth * 4.5;
         }
     }
 
-        .input-prepend input
-        {
+        .input-prepend input {
             border-left: 1px solid silver;
         }
 
-    .work-footer
-    {
+    .table {
+        .border-radius(0);
+
+        * {
+            .border-radius(0);
+        }
+    }
+
+    .work-footer {
         padding: 0;
 
-        section
-        {
+        section {
             float: left;
             margin-left: 0;
             padding-left: 0;
             text-align: left;
         }
 
-        .input-prepend
-        {
+        .input-prepend {
             float: left;
 
-            span.add-on
-            {
+            span.add-on {
                 width: 15mm;
             }
 
-            input
-            {
+            input {
                 width: auto;
             }
         }

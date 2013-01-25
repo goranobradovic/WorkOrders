@@ -238,6 +238,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ScriptsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs">
       <SubType>Code</SubType>
@@ -256,10 +257,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Content\flags\images\flags16.png" />
-    <Content Include="Content\flags\images\flags32.png" />
-    <Content Include="Content\flags\stylesheets\flags16.css" />
-    <Content Include="Content\flags\stylesheets\flags32.css" />
+    <Content Include="Content\flags\flags16.png" />
+    <Content Include="Content\flags\flags32.png" />
+    <Content Include="Content\flags16.css" />
+    <Content Include="Content\flags32.css" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
@@ -473,8 +474,6 @@
       <LastGenOutput>Localize.tr.designer.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\flags\stylesheets\flags16.scss" />
-    <Content Include="Content\flags\stylesheets\flags32.scss" />
     <None Include="Properties\PublishProfiles\autoservismars.com.pubxml" />
     <None Include="Properties\PublishProfiles\goranobradovic.com-workorders.pubxml" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />

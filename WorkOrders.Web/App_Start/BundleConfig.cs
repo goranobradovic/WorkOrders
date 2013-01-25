@@ -62,8 +62,8 @@ namespace WorkOrders.Web
 
             var styles = new StyleBundle("~/Content/css").Include(
                 "~/Content/toastr.css",
-                "~/Content/flags/stylesheets/flags16.css",
-                "~/Content/flags/stylesheets/flags32.css",
+                "~/Content/flags16.css",
+                "~/Content/flags32.css",
                 "~/Content/Site.css",
                 "~/Content/TodoList.css",
                 "~/Content/workorders.less");
