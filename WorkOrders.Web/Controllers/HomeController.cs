@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace WorkOrders.Web.Controllers
 {
-    //[Authorize()]
     public class HomeController : Controller
     {
         public ActionResult Index(string returnUrl)

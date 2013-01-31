@@ -14,7 +14,7 @@ namespace WorkOrders.Domain.Models
   {
     static WorkOrdersContext()
     {
-      Database.SetInitializer(new MigrateDatabaseToLatestVersion<WorkOrdersContext, Migrator>());
+      //Database.SetInitializer(new MigrateDatabaseToLatestVersion<WorkOrdersContext, Migrator>());
     }
 
     public WorkOrdersContext()

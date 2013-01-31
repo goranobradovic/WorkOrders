@@ -6,7 +6,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebMatrix.WebData;
 using WorkOrders.Web.Helpers;
+using WorkOrders.Web.Models;
 
 namespace WorkOrders.Web
 {
@@ -26,6 +28,7 @@ namespace WorkOrders.Web
             AuthConfig.RegisterAuth();
 
             ModelMetadataProviders.Current = new MetadataProvider();
+            WebSecurity.InitializeDatabaseConnection(UsersContext.ConnectionString, "UserProfile", "UserId", "UserName", autoCreateTables: true);
         }
     }
 }

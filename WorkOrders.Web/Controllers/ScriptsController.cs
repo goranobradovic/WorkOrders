@@ -7,7 +7,7 @@
     using System.Resources;
     using System.Web.Mvc;
     using Resource = Resources.Localize;
-
+    
     public class ScriptsController : Controller
     {
         private static readonly string[] JsonAcceptTypes = { "application/json", "text/javascript" };

@@ -2,16 +2,26 @@
 using System.Web.Http;
 using Breeze.WebApi;
 using Newtonsoft.Json.Linq;
+using WebMatrix.WebData;
 using WorkOrders.Domain.Models;
+using WorkOrders.Web.Filters;
+using WorkOrders.Web.Infrastructure;
+using WorkOrders.Web.Models;
 
 namespace WorkOrders.Web.Controllers
 {
-    [BreezeController]
+    [BreezeController, Authorize(Roles = Constants.RoleNames.Employee)]
     public class WorkOrdersController : ApiController
     {
         readonly EFContextProvider<WorkOrdersContext> _contextProvider =
             new EFContextProvider<WorkOrdersContext>();
-        
+
+        public WorkOrdersController()
+        {
+            // todo change this
+            //WebSecurity.RequireRoles(Constants.RoleNames.Employee);
+        }
+
         [HttpGet]
         public string Metadata()
         {
@@ -30,7 +40,7 @@ namespace WorkOrders.Web.Controllers
             return _contextProvider.Context.WorkOrders;
         }
 
-        
+
         [HttpPost]
         public WorkOrder CreateWorkOrder(long? vehicleId = null)
         {

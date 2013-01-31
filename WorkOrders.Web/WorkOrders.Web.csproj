@@ -209,6 +209,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Common.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="App_GlobalResources\Localize.designer.cs">
       <AutoGen>True</AutoGen>
@@ -240,9 +241,7 @@
     <Compile Include="Controllers\ScriptsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Filters\SetUserCultureAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -392,11 +391,13 @@
     <Content Include="Content\less\alerts.less" />
     <Content Include="Content\less\accordion.less" />
     <Content Include="Content\workorders.less" />
-    <Content Include="Areas\MvcMembership\Views\Web.config" />
     <Content Include="Content\less\datepicker.less" />
     <Content Include="App_GlobalResources\Common.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Shared\_LanguageChooser.cshtml" />
     <Content Include="App_GlobalResources\Localize.de.resx">
